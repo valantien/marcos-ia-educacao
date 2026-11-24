@@ -972,6 +972,8 @@ const paintSpin = () => { spinBtn.setAttribute('aria-pressed', S.spin); spinBtn.
 paintSpin();
 spinBtn.onclick = () => { S.spin = !S.spin; store.set('spin', S.spin); paintSpin(); resumeSpin(); };
 $('#btn-home').onclick = () => go('root');
+// o logo do topo também recentraliza quando o mapa inteiro já está aberto (o link "#/" sozinho não faz nada nesse caso)
+document.querySelector('.top .brand')?.addEventListener('click', e => { e.preventDefault(); go('root'); });
 
 // ------------------------------------------------------------------ contents
 const contents = $('#contents'), cBtn = $('#btn-contents');
