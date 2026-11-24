@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marcos da IA na Educação</title>
+<meta name="description" content="Acervo curado por professores de documentos oficiais sobre inteligência artificial na educação: Brasil e organismos internacionais, num mapa navegável.">
+<meta name="theme-color" content="#E2E1DB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171513" media="(prefers-color-scheme: dark)">
+<script>
+/* tema: a escolha da pessoa vale em todas as páginas (guardada no navegador, no nome da janela e no link) e não é trocada por fora */
+(function(){try{var K='mie:theme',R=document.documentElement,t=null;
+try{t=JSON.parse(localStorage.getItem(K))}catch(e){}
+var n=/mie-theme:(light|dark)/.exec(window.name||'');if(n)t=n[1];
+var m=/[?&]tema=(light|dark)/.exec(location.search);if(m)t=m[1];
+window.mieSaveTheme=function(v){window.mieTheme=v;try{localStorage.setItem(K,JSON.stringify(v))}catch(e){}try{window.name='mie-theme:'+v}catch(e){}};
+if(t==='dark'||t==='light'){R.dataset.theme=t;window.mieSaveTheme(t)}else window.mieTheme=null;
+new MutationObserver(function(){var w=window.mieTheme;if(w&&R.dataset.theme!==w)R.dataset.theme=w}).observe(R,{attributes:true,attributeFilter:['data-theme']});
+}catch(e){}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E8DFCE'/%3E%3Cg transform='translate%284 4%29' fill='none' stroke='%23FF6B4A' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M7.6 9.6 L16.4 9.6 L12 17.2 Z' fill='%23FF6B4A' fill-opacity='.35'/%3E%3Cpath d='M12 2 L20.66 7 L20.66 17 L12 22 L3.34 17 L3.34 7 Z'/%3E%3Cpath d='M12 2 L7.6 9.6 M12 2 L16.4 9.6 M20.66 7 L16.4 9.6 M20.66 17 L16.4 9.6 M20.66 17 L12 17.2 M12 22 L12 17.2 M3.34 17 L12 17.2 M3.34 17 L7.6 9.6 M3.34 7 L7.6 9.6'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fontes.css">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/transicoes.css">
+</head><body class="booting">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div id="stage" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+<div id="ring" aria-hidden="true"><i></i></div>
+<div id="veil" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="#/" title="Voltar ao mapa inteiro"><svg class="i bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.6 9.6 L16.4 9.6 L12 17.2 Z" fill="currentColor" fill-opacity=".28"/><path d="M12 2 L20.66 7 L20.66 17 L12 22 L3.34 17 L3.34 7 Z"/><path d="M12 2 L7.6 9.6 M12 2 L16.4 9.6 M20.66 7 L16.4 9.6 M20.66 17 L16.4 9.6 M20.66 17 L12 17.2 M12 22 L12 17.2 M3.34 17 L12 17.2 M3.34 17 L7.6 9.6 M3.34 7 L7.6 9.6"/></svg><span>Marcos IA EDU</span></a>
+  <button class="tbtn" id="btn-contents" aria-controls="contents" aria-expanded="false"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/> <rect x="2" y="16" width="6" height="6" rx="1"/> <rect x="9" y="2" width="6" height="6" rx="1"/> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/> <path d="M12 12V8"/></svg></span><span class="lbl">Documentos</span></button>
+  <div class="search" role="search">
+    <input id="q" type="search" placeholder="buscar no acervo" autocomplete="off" spellcheck="false" aria-label="Buscar no acervo">
+    <kbd>/</kbd>
+    <div class="hits t-dropdown" id="hits" role="listbox" data-origin="top-right"></div>
+  </div>
+  <button class="tbtn tico" id="btn-theme" aria-label="Trocar entre modo claro e escuro" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
+  <button class="tbtn mnu" id="btn-menu" aria-expanded="false" aria-controls="nav-links" aria-label="Menu do site" title="Menu do site"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/> <path d="M4 12h16"/> <path d="M4 19h16"/></svg><span class="lbl">Menu</span></button>
+  <nav class="links t-dropdown" id="nav-links" data-origin="top-right" aria-label="Páginas do site">
+    <a href="#/" class="on" aria-current="page">Mapa</a>
+    <a href="acervo.html">Acervo</a>
+    <span class="mg">O projeto</span>
+    <a href="#/read/doc:sobre">Sobre o acervo</a>
+    <a href="#/read/doc:curadoria">Curadoria</a>
+    <a href="#/read/doc:pipeline">Do achado ao site</a>
+    <a href="#/read/doc:quem-faz">Quem faz</a>
+    <a href="#/read/doc:como-contribuir">Como contribuir</a>
+    <span class="mg">Usar</span>
+    <a href="#/read/doc:usar-com-ia">Use com sua IA</a>
+    <a href="#/read/doc:glossario">Glossário</a>
+    <span class="mg">Repositório</span>
+    <a href="estrutura.html">Estrutura de pastas</a>
+    <a href="#/read/doc:estrutura">Como o repositório se organiza</a>
+    <a href="https://github.com/valantien/marcos-ia-educacao" rel="noopener">Código no GitHub ↗</a>
+  </nav>
+</header>
+<script>
+(function(){var b=document.getElementById('btn-menu'),n=document.getElementById('nav-links');if(!b||!n)return;
+function place(){var r=b.getBoundingClientRect();n.style.top=(r.bottom+8)+'px';n.style.right=Math.max(8,document.documentElement.clientWidth-r.right)+'px'}
+/* transição "menu dropdown" (transitions.dev): abre crescendo do botão; ao fechar, encolhe e some em --dropdown-close-dur */
+var closeMs=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--dropdown-close-dur'))||150,tm=0;
+function set(o){var was=n.classList.contains('open');n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');
+  clearTimeout(tm);
+  if(o){place();n.classList.remove('is-closing');n.classList.add('is-open')}
+  else if(was){n.classList.remove('is-open');n.classList.add('is-closing');tm=setTimeout(function(){n.classList.remove('is-closing')},closeMs)}}
+window.addEventListener('resize',function(){if(n.classList.contains('open'))place()});
+b.addEventListener('click',function(e){e.stopPropagation();set(!n.classList.contains('open'))});
+n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+document.addEventListener('click',function(e){if(!n.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});})();
+</script>
+<main id="conteudo" tabindex="-1">
+<section id="hero" class="t-stagger" aria-labelledby="hero-h">
+  <div class="inst t-stagger-line t-stagger-line--1" role="img" aria-label="Colégio Brasileiro de Altos Estudos e Universidade Federal do Rio de Janeiro"><span class="lg inst-cbae"></span><span class="sep"></span><span class="lg inst-ufrj"></span></div>
+  <p class="kick t-stagger-line t-stagger-line--1">o acervo inteiro, como um mapa</p>
+  <h1 id="hero-h" class="hero-title t-stagger-line t-stagger-line--2"><svg class="hero-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.6 9.6 L16.4 9.6 L12 17.2 Z" fill="currentColor" fill-opacity=".28"/><path d="M12 2 L20.66 7 L20.66 17 L12 22 L3.34 17 L3.34 7 Z"/><path d="M12 2 L7.6 9.6 M12 2 L16.4 9.6 M20.66 7 L16.4 9.6 M20.66 17 L16.4 9.6 M20.66 17 L12 17.2 M12 22 L12 17.2 M3.34 17 L12 17.2 M3.34 17 L7.6 9.6 M3.34 7 L7.6 9.6"/></svg><span>Marcos da IA<br>na Educação</span></h1>
+  <p class="lede t-stagger-line t-stagger-line--3">Documentos oficiais sobre inteligência artificial na educação, do Brasil e de organismos internacionais, para professores, pesquisadores, gestores e para quem quiser entender as regras de IA na educação.</p>
+  <p class="cura t-stagger-line t-stagger-line--4">Curadoria feita por professores. Cada documento é lido e conferido por dois curadores antes de receber o selo Conferido.</p>
+  <div class="paths t-stagger-line t-stagger-line--5" id="paths"></div>
+  <div class="stats t-stagger-line t-stagger-line--6" id="stats"></div>
+  <p class="hint t-stagger-line t-stagger-line--7"><span>arrastar</span> gira <span>rolar</span> aproxima <span>clicar</span> abre <span>esc</span> volta</p>
+  <p class="foot t-stagger-line t-stagger-line--8">GT Formação de Professores em IA · TEIA 3 · CBAE/UFRJ<br>atualizado em <span id="gerado"></span> · conteúdo <a href="#/read/doc:sobre">CC BY-NC 4.0</a></p>
+</section>
+</main>
+<aside id="info" aria-live="polite" aria-label="Item selecionado"></aside>
+<aside id="reader" aria-label="Leitor">
+  <div class="rbar">
+    <button class="rback" id="r-graph" title="Voltar ao mapa (Esc)"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/> <path d="M19 12H5"/></svg> <span>mapa</span></button>
+    <div class="rcrumb" id="r-crumb"></div>
+    <button class="rx" id="r-close" aria-label="Fechar o leitor"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/> <path d="m6 6 12 12"/></svg></button>
+  </div>
+  <div class="rscroll" id="r-scroll"><article class="prose" id="r-body"></article></div>
+</aside>
+<aside id="contents" aria-label="Documentos"><div class="cin" id="c-body"></div></aside>
+<div class="dock">
+  <button class="tbtn legbtn" id="btn-leg" aria-expanded="false" aria-controls="layers"><span>Legenda</span><span class="ds" aria-hidden="true"><i style="--dot:var(--c-int)"></i><i style="--dot:var(--c-fed)"></i><i style="--dot:var(--c-est)"></i><i style="--dot:var(--c-mun)"></i><i style="--dot:var(--c-tag)"></i><i style="--dot:var(--c-proj)"></i></span><svg class="i chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+  <div class="layers" id="layers" role="group" aria-label="Mostrar ou esconder grupos"></div>
+  <div class="ctl t-tt-group">
+    <button class="tbtn" id="btn-spin" title="Pausar a rotação" aria-pressed="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/> <path d="M21 3v5h-5"/></svg></button>
+    <button class="tbtn" id="btn-home" title="Mapa inteiro"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></button>
+  </div>
+</div>
+<script>(function(){var d=document.querySelector('.dock'),b=document.getElementById('btn-leg');if(!d||!b)return;
+function set(o){d.classList.toggle('leg-open',o);b.setAttribute('aria-expanded',o)}
+b.addEventListener('click',function(e){e.stopPropagation();set(!d.classList.contains('leg-open'))});
+document.addEventListener('click',function(e){if(e.composedPath().indexOf(d)<0)set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});})();</script>
+<div id="boot"><div><b><i></i>Marcos da IA na Educação</b><i class="t-shimmer" data-text="desenhando o mapa&hellip;">desenhando o mapa&hellip;</i></div></div>
+<noscript><div class="nojs">Esta página desenha o acervo como um mapa 3D e precisa de JavaScript. As fichas também podem ser lidas no <a href="https://github.com/valantien/marcos-ia-educacao">GitHub</a>.</div></noscript>
+<script src="vendor/graph-libs.js"></script>
+<script src="assets/dados.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/logo3d.js"></script>
+<script>
+/* transição 11, "texts reveal" (transitions.dev): os textos da home sobem em sequência uma única vez,
+   quando a tela de abertura sai. Não mexe no mapa: só acrescenta .is-shown ao bloco de texto. */
+(function(){var h=document.getElementById('hero');if(!h)return;var feito=false;
+function mostrar(){if(feito)return;feito=true;h.classList.remove('is-hiding');void h.offsetHeight;h.classList.add('is-shown')}
+if(!document.body.classList.contains('booting'))mostrar();
+else new MutationObserver(function(_,o){if(!document.body.classList.contains('booting')){o.disconnect();mostrar()}}).observe(document.body,{attributes:true,attributeFilter:['class']});
+setTimeout(mostrar,8000); /* segurança: se a abertura não terminar, o texto aparece mesmo assim */
+})();
+</script>
+<script>
+/* transição 8, "tooltip" (transitions.dev): dica própria nos botões do mapa (pausar, mapa inteiro) e do leitor
+   (voltar ao mapa, fechar), no lugar da dica do navegador. Uma dica por grupo, que viaja entre os botões vizinhos. */
+(function(){
+document.querySelectorAll('.t-tt-group').forEach(function(group,gi){
+  var triggers=[].slice.call(group.querySelectorAll('button[title]'));if(!triggers.length)return;
+  var tip=document.createElement('span');tip.className='t-tt';tip.id='tt-'+gi;tip.setAttribute('role','tooltip');
+  tip.setAttribute('aria-hidden','true');tip.setAttribute('data-show','false');tip.innerHTML='<span class="t-tt-text"></span>';
+  if(group.classList.contains('rbar'))tip.setAttribute('data-below','true');
+  group.appendChild(tip);var text=tip.firstChild;
+  // o texto vem do "title"; ele é retirado para a dica do navegador não aparecer junto (o app.js pode reescrever o title)
+  function label(t){var v=t.getAttribute('title');if(v){t.dataset.tooltip=v;t.removeAttribute('title');if(!t.hasAttribute('aria-label')||t.dataset.ttName)t.setAttribute('aria-label',v),t.dataset.ttName='1'}return t.dataset.tooltip||''}
+  function hide(){tip.setAttribute('data-show','false');tip.setAttribute('aria-hidden','true')}
+  function place(trigger){
+    var showing=tip.getAttribute('data-show')==='true';
+    text.textContent=label(trigger);
+    var cs=getComputedStyle(tip);
+    var width=Math.ceil(text.scrollWidth+parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight));
+    var g=group.getBoundingClientRect(),r=trigger.getBoundingClientRect();
+    var x=r.left-g.left+r.width/2-width/2;
+    // não passa da borda da tela (os botões ficam no canto): 8px de folga dos dois lados
+    x=Math.max(8,Math.min(g.left+x,document.documentElement.clientWidth-8-width))-g.left;
+    if(!showing){tip.style.transition='none';tip.style.width=width+'px';tip.style.setProperty('--tt-x',x+'px');void tip.offsetWidth;tip.style.transition=''}
+    else{tip.style.width=width+'px';tip.style.setProperty('--tt-x',x+'px')}
+    tip.setAttribute('data-show','true');tip.setAttribute('aria-hidden','false');
+  }
+  triggers.forEach(function(t){label(t);t.setAttribute('aria-describedby',tip.id);
+    t.addEventListener('pointerenter',function(){place(t)});
+    t.addEventListener('focus',function(){place(t)});
+    t.addEventListener('blur',hide);
+    t.addEventListener('click',function(){if(tip.getAttribute('data-show')==='true')setTimeout(function(){place(t)},0)});
+  });
+  group.addEventListener('pointerleave',hide);
+});
+})();
+</script>
+<script>
+/* transição 2, "menu dropdown" (transitions.dev) na lista da busca: o app.js liga e desliga .open;
+   aqui isso vira .is-open / .is-closing, sem mexer no app.js */
+(function(){var h=document.getElementById('hits');if(!h)return;
+var closeMs=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--dropdown-close-dur'))||150,tm=0,was=false;
+new MutationObserver(function(){var o=h.classList.contains('open');if(o===was)return;was=o;clearTimeout(tm);
+  if(o){h.classList.remove('is-closing');h.classList.add('is-open')}
+  else{h.classList.remove('is-open');h.classList.add('is-closing');tm=setTimeout(function(){h.classList.remove('is-closing')},closeMs)}
+}).observe(h,{attributes:true,attributeFilter:['class']});})();
+</script>
+<script>
+/* ao trocar de página, leva o tema que está na tela (claro/escuro) junto */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';if(!/^(index|acervo|estrutura)\.html/.test(h))return;
+var d=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+if(window.mieSaveTheme)window.mieSaveTheme(d);else{try{localStorage.setItem('mie:theme',JSON.stringify(d))}catch(_){}}
+var i=h.indexOf('#'),b=i<0?h:h.slice(0,i),x=i<0?'':h.slice(i);a.setAttribute('href',b.replace(/\?.*$/,'')+'?tema='+d+x)},true);
+</script>
+</body></html>

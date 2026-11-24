@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dg-cam" viewBox="0 0 640 200" role="img" aria-labelledby="dg-t2 dg-d2" width="100%">
+  <title id="dg-t2">O caminho de uma ficha</title>
+  <desc id="dg-d2">Quatro etapas: o candidato chega à curadoria; o protocolo decide se ele entra; a ficha nasce no site com o selo Rascunho; dois curadores conferem e a ficha recebe o selo Parcial ou Conferido.</desc>
+  <style>
+    .dg-cam{font-family:var(--sans,Rubik,'Helvetica Neue',Arial,sans-serif)}
+    .dg-cam .dg-lbl{font-family:var(--mono,'JetBrains Mono',Menlo,monospace);font-size:12px;letter-spacing:1.2px;fill:var(--faint,#665A4A)}
+    .dg-cam .dg-card{fill:var(--paper,#E8DFCE);stroke:var(--rule-solid,#B3A58A)}
+    .dg-cam .dg-n{fill:var(--ink,#1B1F3B)}
+    .dg-cam .dg-nt{font-size:12px;font-weight:600;fill:var(--paper,#E8DFCE);text-anchor:middle}
+    .dg-cam .dg-h{font-size:15px;font-weight:600;fill:var(--ink,#1B1F3B)}
+    .dg-cam .dg-p{font-size:13px;fill:var(--soft,#4A4F68)}
+    .dg-cam .dg-line{stroke:var(--ink,#1B1F3B);stroke-width:2;fill:none}
+    .dg-cam .dg-thin{stroke:var(--faint,#665A4A);stroke-width:1.5;fill:none}
+    .dg-cam .dg-arrow{fill:var(--ink,#1B1F3B)}
+    .dg-cam rect.dg-chip{fill:var(--paper,#E8DFCE);stroke-width:2}
+    .dg-cam .dg-chip-t{font-size:14px;font-weight:600;fill:var(--ink,#1B1F3B)}
+    .dg-cam .s-rascunho{stroke:var(--s-rascunho,#A82577)} .dg-cam .d-rascunho{fill:var(--s-rascunho,#A82577)}
+    .dg-cam .s-parcial{stroke:var(--s-parcial,#D9A12A)} .dg-cam .d-parcial{fill:var(--s-parcial,#D9A12A)}
+    .dg-cam .s-conferido{stroke:var(--s-conferido,#2F9E74)} .dg-cam .d-conferido{fill:var(--s-conferido,#2F9E74)}
+  </style>
+  <defs>
+    <marker id="dg-seta2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="dg-card" x="20" y="34" width="130" height="62" rx="12"/>
+  <circle class="dg-n" cx="38" cy="54" r="10"/>
+  <text class="dg-nt" x="38" y="58">1</text>
+  <text class="dg-h" x="54" y="59">Candidato</text>
+  <text class="dg-p" x="34" y="82">é sugerido</text>
+  <path class="dg-line" d="M153 65 L173 65" marker-end="url(#dg-seta2)"/>
+  <rect class="dg-card" x="176" y="34" width="130" height="62" rx="12"/>
+  <circle class="dg-n" cx="194" cy="54" r="10"/>
+  <text class="dg-nt" x="194" y="58">2</text>
+  <text class="dg-h" x="210" y="59">Protocolo</text>
+  <text class="dg-p" x="190" y="82">decide se entra</text>
+  <path class="dg-line" d="M309 65 L329 65" marker-end="url(#dg-seta2)"/>
+  <rect class="dg-card" x="332" y="34" width="130" height="62" rx="12"/>
+  <circle class="dg-n" cx="350" cy="54" r="10"/>
+  <text class="dg-nt" x="350" y="58">3</text>
+  <text class="dg-h" x="366" y="59">Ficha</text>
+  <text class="dg-p" x="346" y="82">nasce no site</text>
+  <path class="dg-line" d="M465 65 L485 65" marker-end="url(#dg-seta2)"/>
+  <rect class="dg-card" x="488" y="34" width="130" height="62" rx="12"/>
+  <circle class="dg-n" cx="506" cy="54" r="10"/>
+  <text class="dg-nt" x="506" y="58">4</text>
+  <text class="dg-h" x="522" y="59">Conferência</text>
+  <text class="dg-p" x="502" y="82">dois curadores</text>
+  <path class="dg-thin" d="M397 96 V118"/>
+  <rect class="dg-chip s-rascunho" x="338" y="118" width="118" height="28" rx="14"/>
+  <circle class="d-rascunho" cx="354" cy="132" r="5.5"/>
+  <text class="dg-chip-t" x="368" y="137">Rascunho</text>
+  <path class="dg-thin" d="M553 96 V118"/>
+  <rect class="dg-chip s-parcial" x="494" y="118" width="118" height="28" rx="14"/>
+  <circle class="d-parcial" cx="510" cy="132" r="5.5"/>
+  <text class="dg-chip-t" x="524" y="137">Parcial</text>
+  <rect class="dg-chip s-conferido" x="494" y="154" width="118" height="28" rx="14"/>
+  <circle class="d-conferido" cx="510" cy="168" r="5.5"/>
+  <text class="dg-chip-t" x="524" y="173">Conferido</text>
+</svg>

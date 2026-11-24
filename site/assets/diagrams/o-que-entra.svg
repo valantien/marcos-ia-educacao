@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dg-oqe" viewBox="0 0 640 760" role="img" aria-labelledby="dg-t dg-d" width="100%">
+  <title id="dg-t">O que entra no acervo</title>
+  <desc id="dg-d">Três tipos de documento (IA com relação direta ao ensino, IA com relação indireta e correlatos) passam por um filtro de documento oficial do Brasil ou de organismo internacional e entram no acervo. Governos de outros países ficam fora nesta fase.</desc>
+  <style>
+    .dg-oqe{font-family:var(--sans,Rubik,'Helvetica Neue',Arial,sans-serif)}
+    .dg-oqe .dg-lbl{font-family:var(--mono,'JetBrains Mono',Menlo,monospace);font-size:12px;letter-spacing:1.2px;fill:var(--faint,#665A4A)}
+    .dg-oqe .dg-card{fill:var(--paper,#E8DFCE);stroke:var(--rule-solid,#B3A58A)}
+    .dg-oqe .dg-bar{fill:var(--ink,#1B1F3B)}
+    .dg-oqe .dg-bar-acc{fill:var(--accent,#FF6B4A)}
+    .dg-oqe .dg-h{font-size:19px;font-weight:600;fill:var(--ink,#1B1F3B)}
+    .dg-oqe .dg-p{font-size:15px;fill:var(--soft,#4A4F68)}
+    .dg-oqe .dg-ex{font-size:14px;font-style:italic;fill:var(--faint,#665A4A)}
+    .dg-oqe .dg-line{stroke:var(--ink,#1B1F3B);stroke-width:2;fill:none}
+    .dg-oqe .dg-arrow{fill:var(--ink,#1B1F3B)}
+    .dg-oqe .dg-filter{fill:var(--paper,#E8DFCE);stroke:var(--ink,#1B1F3B);stroke-width:2}
+    .dg-oqe .dg-out{fill:none;stroke:var(--faint,#665A4A);stroke-width:1.5;stroke-dasharray:6 5}
+    .dg-oqe .dg-out-h{font-size:15px;font-weight:600;fill:var(--faint,#665A4A)}
+    .dg-oqe .dg-out-p{font-size:14px;fill:var(--faint,#665A4A)}
+    .dg-oqe .dg-halo{fill:var(--accent,#FF6B4A);opacity:.18}
+    .dg-oqe .dg-hex{fill:var(--accent,#FF6B4A);stroke:var(--ink,#1B1F3B);stroke-width:2.5;stroke-linejoin:round}
+    .dg-oqe .dg-face{fill:var(--paper,#E8DFCE);opacity:.5}
+    .dg-oqe .dg-edge{stroke:var(--ink,#1B1F3B);stroke-width:1.2;opacity:.5;fill:none}
+  </style>
+  <defs>
+    <marker id="dg-seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <text class="dg-lbl" x="20" y="22">1 · O DOCUMENTO TRATA DE</text>
+  <rect class="dg-card" x="20" y="34" width="600" height="90" rx="12"/>
+  <rect class="dg-bar" x="20" y="34" width="8" height="90" rx="4"/>
+  <text class="dg-h" x="46" y="62">IA com relação direta ao ensino</text>
+  <text class="dg-p" x="46" y="86">Fala de escola, professores e aprendizagem.</text>
+  <text class="dg-ex" x="46" y="108">Ex.: Referencial do MEC para IA na educação</text>
+  <rect class="dg-card" x="20" y="134" width="600" height="90" rx="12"/>
+  <rect class="dg-bar" x="20" y="134" width="8" height="90" rx="4"/>
+  <text class="dg-h" x="46" y="162">IA com relação indireta ao ensino</text>
+  <text class="dg-p" x="46" y="186">Regras de IA que valem também para escolas.</text>
+  <text class="dg-ex" x="46" y="208">Ex.: AI Act (UE) · PL 2.338/2023</text>
+  <rect class="dg-card" x="20" y="234" width="600" height="90" rx="12"/>
+  <rect class="dg-bar-acc" x="20" y="234" width="8" height="90" rx="4"/>
+  <text class="dg-h" x="46" y="262">Documento correlato</text>
+  <text class="dg-p" x="46" y="286">Não trata de IA, mas é base para usá-la no ensino.</text>
+  <text class="dg-ex" x="46" y="308">Ex.: LGPD · Política Nacional de Educação Digital</text>
+  <path class="dg-line" d="M320 332 L320 384" marker-end="url(#dg-seta)"/>
+  <text class="dg-lbl" x="20" y="372">2 · QUEM PUBLICOU</text>
+  <rect class="dg-filter" x="20" y="392" width="600" height="104" rx="12"/>
+  <text class="dg-h" x="320" y="424" text-anchor="middle">Documento oficial</text>
+  <text class="dg-p" x="320" y="450" text-anchor="middle">Órgão público do Brasil (federal, estadual ou municipal)</text>
+  <text class="dg-p" x="320" y="474" text-anchor="middle">ou organismo internacional ou bloco de países</text>
+  <path class="dg-line" d="M320 504 L320 556" marker-end="url(#dg-seta)"/>
+  <text class="dg-lbl" x="20" y="544">3 · RESULTADO</text>
+  <rect class="dg-card" x="20" y="564" width="600" height="104" rx="12"/>
+  <g transform="translate(96 616)">
+    <circle class="dg-halo" r="44"/>
+    <polygon class="dg-hex" points="0,-33 29,-16.5 29,16.5 0,33 -29,16.5 -29,-16.5"/>
+    <polygon class="dg-face" points="0,-33 29,16.5 -29,16.5"/>
+    <path class="dg-edge" d="M0,-33 L0,33 M-29,-16.5 L29,16.5 M29,-16.5 L-29,16.5"/>
+  </g>
+  <text class="dg-h" x="170" y="608">Acervo</text>
+  <text class="dg-p" x="170" y="634">Uma ficha por documento,</text>
+  <text class="dg-p" x="170" y="654">com selo de conferência.</text>
+  <rect class="dg-out" x="20" y="688" width="600" height="60" rx="12"/>
+  <text class="dg-out-h" x="40" y="714">Fica fora nesta primeira fase</text>
+  <text class="dg-out-p" x="40" y="736">Documentos de governos de outros países.</text>
+</svg>

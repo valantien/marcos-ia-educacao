@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estrutura · Marcos da IA na Educação</title>
+<meta name="description" content="Como o repositório do acervo se organiza, pasta por pasta, para quem vai usá-lo com um agente de IA.">
+<script>
+/* tema: a escolha da pessoa vale em todas as páginas (guardada no navegador, no nome da janela e no link) e não é trocada por fora */
+(function(){try{var K='mie:theme',R=document.documentElement,t=null;
+try{t=JSON.parse(localStorage.getItem(K))}catch(e){}
+var n=/mie-theme:(light|dark)/.exec(window.name||'');if(n)t=n[1];
+var m=/[?&]tema=(light|dark)/.exec(location.search);if(m)t=m[1];
+window.mieSaveTheme=function(v){window.mieTheme=v;try{localStorage.setItem(K,JSON.stringify(v))}catch(e){}try{window.name='mie-theme:'+v}catch(e){}};
+if(t==='dark'||t==='light'){R.dataset.theme=t;window.mieSaveTheme(t)}else window.mieTheme=null;
+new MutationObserver(function(){var w=window.mieTheme;if(w&&R.dataset.theme!==w)R.dataset.theme=w}).observe(R,{attributes:true,attributeFilter:['data-theme']});
+}catch(e){}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E8DFCE'/%3E%3Cg transform='translate%284 4%29' fill='none' stroke='%23FF6B4A' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M7.6 9.6 L16.4 9.6 L12 17.2 Z' fill='%23FF6B4A' fill-opacity='.35'/%3E%3Cpath d='M12 2 L20.66 7 L20.66 17 L12 22 L3.34 17 L3.34 7 Z'/%3E%3Cpath d='M12 2 L7.6 9.6 M12 2 L16.4 9.6 M20.66 7 L16.4 9.6 M20.66 17 L16.4 9.6 M20.66 17 L12 17.2 M12 22 L12 17.2 M3.34 17 L12 17.2 M3.34 17 L7.6 9.6 M3.34 7 L7.6 9.6'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fontes.css">
+<link rel="stylesheet" href="assets/paginas.css">
+<link rel="stylesheet" href="assets/transicoes.css">
+</head><body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header><div class="bar">
+  <a class="brand" href="index.html"><svg class="i bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.6 9.6 L16.4 9.6 L12 17.2 Z" fill="currentColor" fill-opacity=".28"/><path d="M12 2 L20.66 7 L20.66 17 L12 22 L3.34 17 L3.34 7 Z"/><path d="M12 2 L7.6 9.6 M12 2 L16.4 9.6 M20.66 7 L16.4 9.6 M20.66 17 L16.4 9.6 M20.66 17 L12 17.2 M12 22 L12 17.2 M3.34 17 L12 17.2 M3.34 17 L7.6 9.6 M3.34 7 L7.6 9.6"/></svg><span>Marcos IA EDU</span></a>
+  <nav class="links t-dropdown" id="nav-links" data-origin="top-right" aria-label="Páginas do site">
+    <a href="index.html">Mapa</a>
+    <a href="acervo.html">Acervo</a>
+    <span class="mg">O projeto</span>
+    <a href="index.html#/read/doc:sobre">Sobre o acervo</a>
+    <a href="index.html#/read/doc:curadoria">Curadoria</a>
+    <a href="index.html#/read/doc:pipeline">Do achado ao site</a>
+    <a href="index.html#/read/doc:quem-faz">Quem faz</a>
+    <a href="index.html#/read/doc:como-contribuir">Como contribuir</a>
+    <span class="mg">Usar</span>
+    <a href="index.html#/read/doc:usar-com-ia">Use com sua IA</a>
+    <a href="index.html#/read/doc:glossario">Glossário</a>
+    <span class="mg">Repositório</span>
+    <a href="estrutura.html" class="on" aria-current="page">Estrutura de pastas</a>
+    <a href="index.html#/read/doc:estrutura">Como o repositório se organiza</a>
+    <a href="https://github.com/valantien/marcos-ia-educacao" rel="noopener">Código no GitHub ↗</a>
+  </nav>
+  <button class="theme" id="theme" aria-label="Trocar entre modo claro e escuro"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
+  <button class="mnu" id="btn-menu" aria-expanded="false" aria-controls="nav-links" aria-label="Menu do site"><span class="lbl">Menu</span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/> <path d="M4 12h16"/> <path d="M4 19h16"/></svg></button>
+</div></header>
+<main id="conteudo" tabindex="-1">
+  <p class="eyebrow">estrutura do repositório</p>
+  <h1>Onde está cada coisa</h1>
+  <p class="lede">O acervo mora num repositório público do GitHub: uma pasta na internet que guarda todos os arquivos e o histórico de cada mudança. Esta página mostra as pastas, uma por uma, em linguagem simples.</p>
+  <h2 class="sr-only">Como usar</h2>
+  <div class="intro-grid">
+    <div class="card"><h3>Para usar com um agente de IA</h3><ol>
+      <li>Aponte o seu agente (Claude Code, Codex, Antigravity) para o <a href="https://github.com/valantien/marcos-ia-educacao">repositório</a>.</li>
+      <li>Ele lê o <code>AGENTS.md</code> sozinho e sabe como consultar o acervo.</li>
+      <li>As fichas estão em <code>corpus/</code>; os dados prontos, em <code>data/</code>.</li></ol></div>
+    <div class="card"><h3>Para usar num chat</h3><p>Cole o endereço do <a href="data/acervo-completo.md">arquivo único</a> na conversa (modo primário). Se o seu assistente não abre endereços da internet, copie o texto do arquivo e cole na conversa (modo secundário). Veja os exemplos em <a href="index.html#/read/doc:usar-com-ia">Use com sua IA</a>.</p></div>
+  </div>
+  <h2 class="sec-h">As pastas</h2>
+  <div class="tree" id="tree"></div>
+  <p class="lede" style="margin-top:22px;font-size:14px">Pastas que começam com <code class="mono">_</code> guardam rascunhos da equipe e não são publicadas. As regras de nome estão em <a href="index.html#/read/doc:estrutura">Como o repositório se organiza</a>.</p>
+</main>
+<footer>GT Formação de Professores em IA · TEIA 3 · CBAE/UFRJ · atualizado em <span id="gerado"></span> · conteúdo <a href="index.html#/read/doc:sobre">CC BY-NC 4.0</a></footer>
+<script src="assets/dados.js"></script>
+<script src="assets/paginas.js"></script>
+<script src="assets/estrutura.js"></script>
+<script>
+/* ao trocar de página, leva o tema que está na tela (claro/escuro) junto */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';if(!/^(index|acervo|estrutura)\.html/.test(h))return;
+var d=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+if(window.mieSaveTheme)window.mieSaveTheme(d);else{try{localStorage.setItem('mie:theme',JSON.stringify(d))}catch(_){}}
+var i=h.indexOf('#'),b=i<0?h:h.slice(0,i),x=i<0?'':h.slice(i);a.setAttribute('href',b.replace(/\?.*$/,'')+'?tema='+d+x)},true);
+</script>
+</body></html>

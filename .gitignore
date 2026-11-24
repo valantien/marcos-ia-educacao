@@ -1,0 +1,14 @@
+# Pastas com _ na frente não vão para o GitHub (admin, 07/11/2026)
+# _refs/: inspirações e links pessoais; _output/: prévias, diagramas e bastidor
+_*/
+_*
+
+# Arquivos de sistema
+.DS_Store
+__pycache__/
+
+# Configuração local do assistente (prévia do site)
+.claude/
+
+# Estado do trabalho, só no computador do admin (24/11/2026)
+handoff.md

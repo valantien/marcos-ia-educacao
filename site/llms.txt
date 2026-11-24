@@ -1,0 +1,17 @@
+# Marcos da IA na Educação
+
+> Acervo curado por professores de documentos oficiais sobre inteligência artificial na educação: Brasil (federal, estadual e municipal) e organismos internacionais. Projeto do GT Formação de Professores em IA (TEIA 3, CBAE/UFRJ). 16 marcos. Conteúdo sob CC BY-NC 4.0.
+
+Cada marco tem um selo de verificação. Só "Conferido" foi verificado na fonte oficial; trate os demais com cautela. Cite o documento e o link oficial; não invente normas.
+
+## Dados
+
+- [Acervo completo em um só texto](https://valantien.github.io/marcos-ia-educacao/data/acervo-completo.md): todas as fichas, com instruções para assistentes de IA
+- [corpus.json](https://valantien.github.io/marcos-ia-educacao/data/corpus.json): dados estruturados de todos os marcos
+- [corpus.csv](https://valantien.github.io/marcos-ia-educacao/data/corpus.csv): a mesma tabela em planilha
+
+## Repositório
+
+- [Repositório no GitHub](https://github.com/valantien/marcos-ia-educacao): uma ficha em Markdown por documento, em corpus/
+- [AGENTS.md](https://github.com/valantien/marcos-ia-educacao/blob/main/AGENTS.md): instruções para agentes que leem o repositório
+- [Regras de curadoria](https://github.com/valantien/marcos-ia-educacao/blob/main/site/pages/curadoria.md)

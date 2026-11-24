@@ -1,0 +1,471 @@
+/* Transições da skill transitions.dev (MIT), uma por vez, com aprovação do maintainer (13/11/2026).
+   Para desfazer uma transição, apagar o bloco dela aqui e o trecho correspondente no HTML/JS. */
+
+/* ================================================================ 1. Menu dropdown (botão "Menu" do topo) */
+:root {
+  --dropdown-open-dur: 250ms;
+  --dropdown-close-dur: 150ms;
+  --dropdown-pre-scale: 0.97;
+  --dropdown-closing-scale: 0.99;
+  --dropdown-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* trecho original da skill (05-menu-dropdown.md), sem alterações */
+.t-dropdown {
+  transform-origin: top left;
+  transform: scale(var(--dropdown-pre-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dropdown-open-dur) var(--dropdown-ease),
+    opacity   var(--dropdown-open-dur) var(--dropdown-ease);
+  will-change: transform, opacity;
+}
+.t-dropdown[data-origin="top-right"]     { transform-origin: top right; }
+.t-dropdown[data-origin="top-center"]    { transform-origin: top center; }
+.t-dropdown[data-origin="bottom-left"]   { transform-origin: bottom left; }
+.t-dropdown[data-origin="bottom-center"] { transform-origin: bottom center; }
+.t-dropdown[data-origin="bottom-right"]  { transform-origin: bottom right; }
+
+.t-dropdown.is-open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.t-dropdown.is-closing {
+  transform: scale(var(--dropdown-closing-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dropdown-close-dur) var(--dropdown-ease),
+    opacity   var(--dropdown-close-dur) var(--dropdown-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-dropdown { transition: none !important; }
+}
+
+/* encaixe no site: quando os links viram o menu suspenso (tela até 1100px ou ficha aberta),
+   a lista fica sempre montada no lugar e só a transição a mostra ou esconde */
+.links.t-dropdown{display:flex;flex-direction:column;align-items:stretch;gap:2px;height:auto;padding:8px;min-width:250px;
+  position:fixed;top:60px;right:16px;z-index:40;box-shadow:var(--lift);background:var(--card)}
+.links.t-dropdown a{padding:10px 14px;white-space:nowrap}
+.links.t-dropdown a.on{color:var(--ink);font-weight:600;background:var(--accent-bg)}
+.links.t-dropdown{max-height:calc(100vh - 76px);max-height:calc(100dvh - 76px);max-width:calc(100vw - 24px);overflow-y:auto;overscroll-behavior:contain}
+.links .mg{display:block;font:12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:12px 14px 4px;margin-top:4px;border-top:1px solid var(--rule-solid,rgba(0,0,0,.12))}
+body.m-read .links.t-dropdown{display:flex;flex-direction:column;align-items:stretch;gap:2px;height:auto;padding:6px;
+  position:fixed;top:60px;right:16px;z-index:40;box-shadow:var(--lift);background:var(--card)}
+body.m-read .links.t-dropdown a{padding:10px 14px;white-space:nowrap}
+/* fechado de vez: fora da tela de leitura e do Tab (só quando é menu suspenso) */
+.links.t-dropdown:not(.is-open):not(.is-closing){visibility:hidden}
+body.m-read .links.t-dropdown:not(.is-open):not(.is-closing){visibility:hidden}
+/* 2. lista de resultados da busca: fica montada e a transição mostra ou esconde */
+.hits.t-dropdown{display:block}
+.hits.t-dropdown:not(.is-open):not(.is-closing){visibility:hidden}
+
+/* menu sanduíche completo em todas as larguras (decisão 119): os links não ficam mais soltos na barra do topo */
+
+/* ================================================================ 3. Accordion (pastas da página Estrutura) */
+:root {
+  --acc-expand: 250ms;
+  --acc-collapse: 250ms;
+  --acc-chevron: 250ms;
+  --acc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* trecho original da skill (21-accordion.md), sem alterações */
+.t-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--acc-collapse) var(--acc-ease);
+}
+.t-acc[data-open="true"] .t-acc-panel {
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--acc-expand) var(--acc-ease);
+}
+.t-acc-panel-inner {
+  overflow: hidden;
+  opacity: 0;
+  filter: blur(2px);
+  transition:
+    opacity var(--acc-collapse) var(--acc-ease),
+    filter var(--acc-collapse) var(--acc-ease);
+}
+.t-acc[data-open="true"] .t-acc-panel-inner {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity var(--acc-expand) var(--acc-ease),
+    filter var(--acc-expand) var(--acc-ease);
+}
+.t-acc-chevron {
+  display: inline-flex;
+  transform: scaleY(1);
+  transform-origin: center;
+  transition: transform var(--acc-chevron) var(--acc-ease);
+}
+.t-acc-chevron path { vector-effect: non-scaling-stroke; }
+.t-acc[data-open="true"] .t-acc-chevron {
+  transform: scaleY(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-acc-panel, .t-acc-panel-inner, .t-acc-chevron {
+    transition: none !important;
+  }
+}
+
+/* encaixe no site: o nome da pasta vira botão (abre com teclado também), a setinha substitui o "▸" */
+.tree .t-acc-head{background:none;border:0;padding:0;font:inherit;font-weight:500;color:var(--ink);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;border-radius:4px}
+.tree .t-acc-head:hover{color:var(--accent-ink)}
+.tree .t-acc>.nm::before{content:none}
+.tree .t-acc-chevron{width:14px;height:14px;color:var(--soft)}
+.tree .t-acc-chevron svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* pastas dentro de pastas: o trecho da skill abre tudo o que está dentro de uma pasta aberta;
+   aqui cada pasta fechada se mantém fechada, mesmo dentro de uma aberta */
+.tree .t-acc[data-open="false"]>.t-acc-panel{grid-template-rows:0fr;transition:grid-template-rows var(--acc-collapse) var(--acc-ease)}
+.tree .t-acc[data-open="false"]>.t-acc-panel>.t-acc-panel-inner{opacity:0;filter:blur(2px);
+  transition:opacity var(--acc-collapse) var(--acc-ease),filter var(--acc-collapse) var(--acc-ease)}
+/* a setinha da pasta fechada aponta para o lado, como antes ("▸"); aberta, para baixo */
+.tree .t-acc>.t-acc-head .t-acc-chevron{transform:rotate(-90deg)}
+.tree .t-acc[data-open="true"]>.t-acc-head .t-acc-chevron{transform:rotate(0deg)}
+@media (prefers-reduced-motion: reduce){
+  .tree .t-acc>.t-acc-panel,.tree .t-acc>.t-acc-panel>.t-acc-panel-inner,.tree .t-acc-chevron{transition:none !important}}
+
+/* ================================================================ 4. Accordion (seções do Sumário, na página inicial)
+   usa o mesmo trecho da skill do item 3, acima; aqui só o encaixe */
+.cs.t-acc ol{display:block}
+.cs .k{display:inline-flex;align-items:center}
+.cs .t-acc-chevron{width:14px;height:14px;color:var(--dot)}
+.cs .t-acc-chevron svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* fechada aponta para o lado; aberta, para baixo (como as pastas da Estrutura) */
+.cs.t-acc>.t-acc-head .t-acc-chevron{transform:rotate(-90deg)}
+.cs.t-acc[data-open="true"]>.t-acc-head .t-acc-chevron{transform:rotate(0deg)}
+@media (prefers-reduced-motion: reduce){.cs .t-acc-chevron{transition:none !important}}
+
+/* ================================================================ 5. Icon swap (botão sol/lua, em todas as páginas) */
+:root {
+  --icon-swap-dur: 250ms;
+  --icon-swap-blur: 2px;
+  --icon-swap-start-scale: 0.25;
+  --icon-swap-ease: ease-in-out;
+}
+
+/* trecho original da skill (09-icon-swap.md), sem alterações */
+.t-icon-swap {
+  position: relative;
+  display: inline-grid;
+}
+.t-icon-swap .t-icon {
+  grid-area: 1 / 1;
+  transition:
+    opacity   var(--icon-swap-dur) var(--icon-swap-ease),
+    filter    var(--icon-swap-dur) var(--icon-swap-ease),
+    transform var(--icon-swap-dur) var(--icon-swap-ease);
+  /* No will-change: it would freeze each icon's raster at its 0.25 start
+     scale, so a large icon scales up blurry and pixelated. */
+}
+.t-icon-swap[data-state="a"] .t-icon[data-icon="a"],
+.t-icon-swap[data-state="b"] .t-icon[data-icon="b"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+.t-icon-swap[data-state="a"] .t-icon[data-icon="b"],
+.t-icon-swap[data-state="b"] .t-icon[data-icon="a"] {
+  opacity: 0;
+  filter: blur(var(--icon-swap-blur));
+  transform: scale(var(--icon-swap-start-scale));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-icon-swap .t-icon { transition: none !important; }
+}
+
+/* encaixe no site: os dois ícones centralizados no botão redondo */
+.t-icon-swap .t-icon{display:inline-flex;align-items:center;justify-content:center}
+
+/* ================================================================ 6. Number subtle change (contador "N de 16 marcos" do Acervo) */
+:root {
+  --subtle-dur: 455ms;
+  --subtle-distance: 0.14em;
+  --subtle-blur: 0.042em;
+  --subtle-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* trecho original da skill (36-number-subtle-change.md), sem alterações */
+.t-subtle-number {
+  display: inline-flex;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+}
+.t-subtle-slot { position: relative; display: inline-block; }
+.t-subtle-new { display: inline-block; }
+.t-subtle-old { position: absolute; inset: 0; text-align: center; pointer-events: none; }
+.t-subtle-number.is-animating .t-subtle-new {
+  animation: t-subtle-in var(--subtle-dur) var(--subtle-ease) both;
+}
+.t-subtle-number.is-animating .t-subtle-old {
+  animation: t-subtle-out var(--subtle-dur) var(--subtle-ease) both;
+}
+@keyframes t-subtle-in {
+  from {
+    transform: translateY(calc(var(--subtle-distance) * var(--subtle-dir, 1)));
+    opacity: 0;
+    filter: blur(var(--subtle-blur));
+  }
+}
+@keyframes t-subtle-out {
+  to {
+    transform: translateY(calc(var(--subtle-distance) * var(--subtle-dir, 1) * -1));
+    opacity: 0;
+    filter: blur(var(--subtle-blur));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-subtle-number .t-subtle-new { animation: none !important; }
+  .t-subtle-number .t-subtle-old { display: none; }
+}
+
+/* ================================================================ 7. Panel reveal (Sumário, janela de informação e leitor da ficha)
+   Adaptado: o trecho da skill (07-panel-reveal.md) desliza o painel para cima; aqui os painéis já deslizam
+   de lado (esquerda ou direita), e esse movimento continua. Da skill vêm o que se soma a ele:
+   o painel aparece (opacidade) e sai do desfoque de 2px enquanto entra, com os tempos e a curva dela. */
+:root {
+  --panel-open-dur: 400ms;
+  --panel-close-dur: 350ms;
+  --panel-blur: 2px;
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+#contents,#info,#reader{
+  opacity:0;
+  filter:blur(var(--panel-blur));
+  transition:
+    transform var(--panel-close-dur) var(--panel-ease),
+    opacity   var(--panel-close-dur) var(--panel-ease),
+    filter    var(--panel-close-dur) var(--panel-ease);
+}
+body.c-open #contents,body.m-focus #info,body.m-read #reader{
+  opacity:1;
+  filter:none;
+  transition:
+    transform var(--panel-open-dur) var(--panel-ease),
+    opacity   var(--panel-open-dur) var(--panel-ease),
+    filter    var(--panel-open-dur) var(--panel-ease);
+}
+@media (prefers-reduced-motion: reduce){#contents,#info,#reader{transition:none !important}}
+/* a barra do topo abre espaço para o leitor no mesmo tempo do leitor */
+.top{transition:right var(--panel-open-dur) var(--panel-ease)}
+
+/* ================================================================ 8. Tooltip (botões do mapa e do leitor da ficha) */
+:root {
+  --tt-in-dur: 150ms;
+  --tt-out-dur: 50ms;
+  --tt-scale: 0.98;
+  --tt-delay: 80ms;
+  --tt-in-ease: ease-out;
+  --tt-out-ease: ease-out;
+  --tt-move-dur: 160ms;
+  --tt-move-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* cores do site no lugar do branco da skill: dica escura no modo claro e clara no escuro */
+  --tt-bg: var(--ink);
+  --tt-fg: var(--paper);
+}
+
+/* trecho original da skill (17-tooltip.md), sem alterações */
+.t-tt-group {
+  position: relative;
+  display: inline-flex;
+}
+.t-tt {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;                 /* the JS writes the measured width */
+  overflow: hidden;
+  translate: var(--tt-x, 0px) 0;
+  scale: var(--tt-scale);
+  transform-origin: 50% 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--tt-bg);
+  color: var(--tt-fg);
+  white-space: nowrap;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 2px 6px 0 rgba(0, 0, 0, 0.05),
+    0 4px 42px 0 rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity   var(--tt-out-dur) var(--tt-out-ease),
+    scale     var(--tt-out-dur) var(--tt-out-ease),
+    translate var(--tt-move-dur) var(--tt-move-ease),
+    width     var(--tt-move-dur) var(--tt-move-ease);
+}
+.t-tt[data-show="true"] {
+  opacity: 1;
+  scale: 1;
+  transition:
+    opacity   var(--tt-in-dur) var(--tt-in-ease) var(--tt-delay),
+    scale     var(--tt-in-dur) var(--tt-in-ease) var(--tt-delay),
+    translate var(--tt-move-dur) var(--tt-move-ease),
+    width     var(--tt-move-dur) var(--tt-move-ease);
+}
+.t-tt-text { white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-tt { transition: none !important; }
+}
+
+/* encaixe no site */
+.t-tt{font:12px/1 var(--mono);z-index:60}
+
+/* ================================================================ 9. Learn more hover (botões e links com seta: "Ler a ficha →",
+   "Ver na lista do Acervo →", "Link oficial ↗", anterior/próxima) */
+:root {
+  --learn-shift: 2px;
+  --learn-spread: 8deg;
+  --learn-in: 350ms;
+  --learn-out: 350ms;
+  --learn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* trecho original da skill (24-learn-more-hover.md), sem alterações */
+.t-learn-chevron {
+  display: inline-flex;
+  transform: translateX(0);
+  transition: transform var(--learn-out) var(--learn-ease);
+}
+.t-learn-arm {
+  transform-box: view-box;
+  transform-origin: 10px 8px;
+  vector-effect: non-scaling-stroke;
+  transition: transform var(--learn-out) var(--learn-ease);
+}
+.t-learn:hover .t-learn-chevron { transform: translateX(var(--learn-shift)); transition-duration: var(--learn-in); }
+.t-learn:hover .t-learn-arm { transition-duration: var(--learn-in); }
+.t-learn:hover .t-learn-arm-top { transform: rotate(var(--learn-spread)); }
+.t-learn:hover .t-learn-arm-bot { transform: rotate(calc(var(--learn-spread) * -1)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-learn-chevron, .t-learn-arm { transition: none !important; }
+}
+
+/* encaixe no site: as setas são os ícones Lucide do site (inteiras, sem "braços" separados), então só o deslize se aplica.
+   Deslize de 3px (a skill usa 2px, pouco visível numa seta inteira). "anterior" desliza para a esquerda; "↗" na diagonal. */
+:root{--learn-shift-base:3px;--learn-shift:var(--learn-shift-base)}
+.t-learn:hover .t-learn-chevron.diag{transform:translate(var(--learn-shift),calc(var(--learn-shift) * -1))}
+
+/* ================================================================ 10. Shimmer text (só o texto "desenhando o mapa…" da abertura)
+   Não toca no mapa: vale apenas para o elemento com a classe t-shimmer dentro de #boot, que some quando o mapa termina de carregar. */
+:root {
+  --shimmer-dur: 2000ms;
+  --shimmer-band: 400%;
+  --shimmer-ease: linear;
+}
+/* cores do site no lugar do cinza da skill: base apagada, brilho na cor do texto (seguem o modo claro/escuro) */
+#boot{--shimmer-base:var(--faint);--shimmer-highlight:var(--ink)}
+
+/* trecho original da skill (15-shimmer-text.md), sem alterações */
+.t-shimmer {
+  position: relative;
+  display: inline-block;
+  color: var(--shimmer-base);
+}
+.t-shimmer::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    90deg,
+    transparent          0%,
+    transparent         40%,
+    var(--shimmer-highlight) 50%,
+    transparent         60%,
+    transparent        100%
+  );
+  background-size: var(--shimmer-band) 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: t-shimmer var(--shimmer-dur) var(--shimmer-ease) infinite;
+}
+@keyframes t-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-shimmer::before { animation: none !important; }
+}
+
+/* encaixe no site: o brilho substitui o pisca-pisca antigo do texto (só ele; o resto da abertura e o mapa ficam iguais) */
+#boot div>i.t-shimmer{animation:none}
+
+/* ================================================================ 11. Texts reveal (textos da home, uma vez ao abrir)
+   Só o bloco de texto à esquerda; o mapa e a animação de entrada dele não mudam.
+   O trecho da skill fica numa camada (@layer) para que as regras do site que já existem para esses blocos
+   (ex.: os cartões 01/02/03 em grade, o placar em linha, o que se esconde em tela baixa) continuem valendo. */
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer transicoes-skill {
+/* trecho original da skill (18-texts-reveal.md), sem alterações */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity   var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter    var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 200ms ease,
+    transform 0s linear,
+    filter 0s linear;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line { transition: none !important; }
+}
+
+/* linhas 3 a 8, como a skill indica: atraso = --stagger-stagger × (N − 1) */
+.t-stagger-line--3 { transition-delay: calc(var(--stagger-stagger) * 2); }
+.t-stagger-line--4 { transition-delay: calc(var(--stagger-stagger) * 3); }
+.t-stagger-line--5 { transition-delay: calc(var(--stagger-stagger) * 4); }
+.t-stagger-line--6 { transition-delay: calc(var(--stagger-stagger) * 5); }
+.t-stagger-line--7 { transition-delay: calc(var(--stagger-stagger) * 6); }
+.t-stagger-line--8 { transition-delay: calc(var(--stagger-stagger) * 7); }
+}
+/* depois de aparecer, o texto fica nítido de vez (sem desfoque guardado) */
+#hero.is-shown .t-stagger-line{will-change:auto}

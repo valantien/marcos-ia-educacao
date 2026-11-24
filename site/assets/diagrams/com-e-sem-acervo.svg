@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dg-ia" viewBox="0 0 640 232" role="img" aria-labelledby="dg-t3 dg-d3" width="100%">
+  <title id="dg-t3">Com e sem o acervo</title>
+  <desc id="dg-d3">Sem o acervo, a pergunta vai ao chatbot, que responde com base no treinamento e pode inventar a resposta. Com o acervo, a pergunta vai ao agente, que lê as fichas com fonte oficial e selo, e a resposta pode ser conferida.</desc>
+  <style>
+    .dg-ia{font-family:var(--sans,Rubik,'Helvetica Neue',Arial,sans-serif)}
+    .dg-ia .dg-lbl{font-family:var(--mono,'JetBrains Mono',Menlo,monospace);font-size:12px;letter-spacing:1.2px;fill:var(--faint,#665A4A)}
+    .dg-ia .dg-card{fill:var(--paper,#E8DFCE);stroke:var(--rule-solid,#B3A58A)}
+    .dg-ia .dg-off{stroke-dasharray:5 4}
+    .dg-ia .dg-on{stroke:var(--accent,#FF6B4A);stroke-width:2.5}
+    .dg-ia .dg-h{font-size:15px;font-weight:600;fill:var(--ink,#1B1F3B)}
+    .dg-ia .dg-p{font-size:13px;fill:var(--soft,#4A4F68)}
+    .dg-ia .dg-line{stroke:var(--ink,#1B1F3B);stroke-width:2;fill:none}
+    .dg-ia .dg-arrow{fill:var(--ink,#1B1F3B)}
+  </style>
+  <defs>
+    <marker id="dg-seta3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-arrow" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <text class="dg-lbl" x="20" y="22">SEM O ACERVO</text>
+  <rect class="dg-card " x="20" y="34" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="36" y="62">Sua pergunta</text>
+  <text class="dg-p" x="36" y="83">ao chatbot</text>
+  <path class="dg-line" d="M203 65 L227 65" marker-end="url(#dg-seta3)"/>
+  <path class="dg-line" d="M413 65 L437 65" marker-end="url(#dg-seta3)"/>
+  <rect class="dg-card " x="230" y="34" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="246" y="62">Treinamento</text>
+  <text class="dg-p" x="246" y="83">pode estar defasado</text>
+  <rect class="dg-card dg-off" x="440" y="34" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="456" y="62">Resposta</text>
+  <text class="dg-p" x="456" y="83">pode ser inventada</text>
+  <text class="dg-lbl" x="20" y="132">COM O ACERVO</text>
+  <rect class="dg-card " x="20" y="144" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="36" y="172">Sua pergunta</text>
+  <text class="dg-p" x="36" y="193">ao agente</text>
+  <path class="dg-line" d="M203 175 L227 175" marker-end="url(#dg-seta3)"/>
+  <path class="dg-line" d="M413 175 L437 175" marker-end="url(#dg-seta3)"/>
+  <rect class="dg-card " x="230" y="144" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="246" y="172">Fichas do acervo</text>
+  <text class="dg-p" x="246" y="193">fonte oficial e selo</text>
+  <rect class="dg-card dg-on" x="440" y="144" width="180" height="62" rx="12"/>
+  <text class="dg-h" x="456" y="172">Resposta</text>
+  <text class="dg-p" x="456" y="193">você pode conferir</text>
+</svg>

@@ -1,0 +1,305 @@
+/* Páginas Acervo e Estrutura. Cores e fontes iguais às do mapa. */
+:root{
+  --paper:#E8DFCE; --card:#DFD3BE; --bone:#EFE7D8; --sand-2:#D3C5AC; --ink:#1B1F3B; --soft:#4A4F68; --faint:#665A4A;
+  --rule:#C9BCA3; --rule-solid:#B3A58A; --accent:#FF6B4A; --accent-ink:#FF6B4A; --accent-bg:#D3C5AC; --num:#1B1F3B;
+  --on-accent:#1B1F3B;
+  /* uma cor por esfera, da paleta de referência (azul, coral, sálvia, sol) */
+  --c-root:#1B1F3B; --c-int:#2B59FF; --c-fed:#D64545; --c-est:#056F88; --c-mun:#6D3FD0;
+  --c-tag:#978A78; --c-proj:#5B6078;
+  /* selos de verificação */
+  --s-rascunho:#A82577; --s-parcial:#D9A12A; --s-conferido:#2F9E74; --s-em-revisao:#EF5A39;
+  --paper-rgb:232,223,206; --card-rgb:223,211,190; --shadow-rgb:27,31,59;
+  --stage-glow:#EFE7D8; --grid-dot:rgba(115,101,79,.6); --accent-strong:#FF6B4A;
+  color-scheme:light;
+  --serif:"Rubik",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sans:"Rubik",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --glass:rgba(var(--card-rgb),.92);
+  --edge:1px solid var(--rule);
+  --lift:0 1px 2px #1b1f3b0f,0 16px 40px -16px #1b1f3b3d;
+  --r-card:18px;
+  --info-w:420px; --reader-w:min(780px,60vw); --hero-w:460px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --w:68ch;
+
+  --s-rascunho-ink:#9A2070; --s-parcial-ink:#675334; --s-conferido-ink:#255E58; --s-em-revisao-ink:#853C3A; --kick-ink:#FF6B4A;}
+/* modo escuro: segue o sistema, a menos que a pessoa escolha pelo botão */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#2A1121; --card:#230E1C; --bone:#3B1B31; --sand-2:#61374F; --ink:#FFFDF8; --soft:#E6D8DF; --faint:#B49FAB;
+    --rule:rgba(255,253,248,.2); --rule-solid:#6E4560; --accent:#F0B13B; --accent-ink:#F0B13B; --accent-bg:#61374F; --num:#F0B13B;
+    --on-accent:#24101C;
+    --c-root:#F0B13B; --c-int:#5FA2FF; --c-fed:#F0647A; --c-est:#3CC8D8; --c-mun:#B48CFF;
+    --c-tag:#9A8492; --c-proj:#F3E6D0;
+    --s-rascunho:#F07AD0; --s-parcial:#D8C690; --s-conferido:#A9BA80; --s-em-revisao:#F59A5B;
+    --paper-rgb:42,17,33; --card-rgb:35,14,28; --shadow-rgb:0,0,0;
+    --stage-glow:#3A1830; --grid-dot:rgba(255,253,248,.13); --accent-strong:#F0B13B; color-scheme:dark;
+    --lift:0 1px 2px #0000004d,0 16px 40px -16px #0009;
+  
+    --s-rascunho-ink:var(--s-rascunho); --s-parcial-ink:var(--s-parcial); --s-conferido-ink:var(--s-conferido); --s-em-revisao-ink:var(--s-em-revisao); --kick-ink:var(--accent);}
+}
+:root[data-theme="dark"]{
+    --paper:#2A1121; --card:#230E1C; --bone:#3B1B31; --sand-2:#61374F; --ink:#FFFDF8; --soft:#E6D8DF; --faint:#B49FAB;
+    --rule:rgba(255,253,248,.2); --rule-solid:#6E4560; --accent:#F0B13B; --accent-ink:#F0B13B; --accent-bg:#61374F; --num:#F0B13B;
+    --on-accent:#24101C;
+    --c-root:#F0B13B; --c-int:#5FA2FF; --c-fed:#F0647A; --c-est:#3CC8D8; --c-mun:#B48CFF;
+    --c-tag:#9A8492; --c-proj:#F3E6D0;
+    --s-rascunho:#F07AD0; --s-parcial:#D8C690; --s-conferido:#A9BA80; --s-em-revisao:#F59A5B;
+    --paper-rgb:42,17,33; --card-rgb:35,14,28; --shadow-rgb:0,0,0;
+    --stage-glow:#3A1830; --grid-dot:rgba(255,253,248,.13); --accent-strong:#F0B13B; color-scheme:dark;
+    --lift:0 1px 2px #0000004d,0 16px 40px -16px #0009;
+
+    --s-rascunho-ink:var(--s-rascunho); --s-parcial-ink:var(--s-parcial); --s-conferido-ink:var(--s-conferido); --s-em-revisao-ink:var(--s-em-revisao); --kick-ink:var(--accent);}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* mesmo fundo pontilhado da home (#stage em app.css), parado ao rolar (maintainer, 07/11/2026) */
+body{background:radial-gradient(ellipse 70% 60% at 55% 45%,var(--stage-glow) 0%,transparent 70%) fixed,
+  radial-gradient(circle at 1px 1px,var(--grid-dot) 1.15px,transparent 1.45px) 0 8px/26px 26px fixed,var(--paper);color:var(--ink);font:16px/1.55 var(--sans);letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px;border-radius:3px}
+.mono{font-family:var(--mono)}
+/* topo sem faixa: só as pílulas flutuam sobre o fundo pontilhado, como na home (maintainer, 07/11/2026) */
+header{position:sticky;top:0;z-index:40;padding:14px 16px;pointer-events:none;transition:background .2s,backdrop-filter .2s}
+body.rolou header{background:linear-gradient(rgba(var(--paper-rgb),.96),rgba(var(--paper-rgb),.8));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+header .brand,header nav,header .theme{pointer-events:auto;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.bar{max-width:1200px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.brand{display:flex;align-items:center;gap:9px;font:700 16px/1 var(--serif);color:var(--ink);white-space:nowrap;background:var(--glass);border:var(--edge);border-radius:999px;padding:10px 16px 10px 13px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1px rgba(var(--shadow-rgb),.25)}
+.brand:hover{text-decoration:none;border-color:var(--ink)}
+nav{margin-left:auto;display:flex;gap:2px;background:var(--glass);border:var(--edge);border-radius:999px;padding:4px 6px}
+nav a{font:500 12px/1 var(--sans);color:var(--soft);padding:8px 10px;border-radius:999px;white-space:nowrap;flex:none}
+nav a:hover{color:var(--ink);background:var(--accent-bg);text-decoration:none}
+nav a.on{color:var(--ink);background:var(--accent-bg)}
+.theme{width:38px;height:38px;border-radius:999px;border:var(--edge);background:var(--glass);cursor:pointer;color:var(--soft);font-size:14px}
+.theme:hover{color:var(--ink);border-color:var(--ink)}
+main{max-width:1200px;margin:0 auto;padding:40px 16px 90px}
+.eyebrow{font:12px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+h1{font:700 clamp(36px,5vw,54px)/1.05 var(--serif);letter-spacing:-.035em;margin-bottom:14px}
+.lede{max-width:62ch;color:var(--soft);font-size:16px;margin-bottom:18px}
+.cura{font:700 16px/1.45 var(--serif);max-width:62ch;margin-bottom:26px;padding-left:12px;border-left:2px solid var(--accent)}
+.aviso{font-size:14px;line-height:1.5;color:var(--soft);border:var(--edge);border-left:3px solid var(--s-parcial);background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:28px;max-width:80ch}
+.aviso b{color:var(--ink);font-weight:500}
+.controls{display:grid;gap:12px;padding:18px 0;border-top:var(--edge);border-bottom:var(--edge);margin-bottom:6px}
+.crow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.crow .lbl{font:12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);width:124px;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;font:12px/1 var(--mono);background:var(--card);color:var(--soft);border:var(--edge);border-radius:999px;padding:7px 12px;cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.chip .d{width:7px;height:7px;border-radius:50%;background:var(--dot,var(--sc))}
+.search{flex:1;min-width:220px;height:40px;background:var(--card);border:var(--edge);border-radius:10px;padding:0 16px;font:14px var(--mono);outline:none}
+.search:focus{border-color:var(--ink)}
+select{height:40px;background:var(--card);border:var(--edge);border-radius:999px;padding:0 14px;font:12px var(--mono);color:var(--ink)}
+.count{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:12px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);padding:14px 0 6px}
+.count a{color:var(--soft);border-bottom:var(--edge)}
+.row{display:grid;grid-template-columns:120px minmax(0,1fr) 170px;gap:6px 22px;padding:18px 0;border-bottom:var(--edge);align-items:baseline;color:var(--ink)}
+.row:hover{text-decoration:none;background:linear-gradient(90deg,transparent,var(--accent-bg) 40%,transparent)}
+.row .ano{font:700 24px/1 var(--serif);letter-spacing:-.02em}
+.row .ano small{display:block;font:12px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:6px}
+.row h3{font:700 20px/1.2 var(--serif);letter-spacing:-.015em;margin-bottom:6px}
+.row p{font-size:14px;color:var(--soft);max-width:80ch}
+.row .tg{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:8px;font:600 14px/1.3 var(--serif);color:var(--soft)}
+.row .side{display:grid;gap:7px;justify-items:start}
+.row .esf{display:inline-flex;align-items:center;gap:7px;font:12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.row .esf::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot)}
+.selo{display:inline-flex;align-items:center;gap:7px;font:12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sc);border:1px solid color-mix(in srgb,var(--sc) 55%,transparent);background:color-mix(in srgb,var(--sc) 10%,transparent);border-radius:999px;padding:5px 10px 5px 8px;white-space:nowrap}
+.selo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sc)}
+.rascunho{--sc:var(--s-rascunho)} .parcial{--sc:var(--s-parcial)} .conferido{--sc:var(--s-conferido)} .em-revisao{--sc:var(--s-em-revisao)}
+.nat{font:12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.none{padding:40px 0;color:var(--soft);font:600 16px var(--serif)}
+.downloads{margin-top:48px;padding-top:22px;border-top:var(--edge);display:grid;gap:14px}
+.downloads h2,.sec-h{font:700 24px/1.2 var(--serif);letter-spacing:-.02em}
+.dl{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn:hover{background:var(--accent-bg);text-decoration:none}
+.btn.primary{background:var(--ink);color:var(--card)}
+.btn.primary:hover{background:var(--soft);border-color:var(--soft)}
+footer{max-width:1200px;margin:0 auto;padding:22px 16px 40px;border-top:var(--edge);font:12px/1.8 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+footer a{color:var(--soft);border-bottom:var(--edge)}
+/* estrutura */
+.tree{font:14px/1.5 var(--mono);margin-top:10px}
+.tree ul{list-style:none;margin-left:18px;border-left:var(--edge);padding-left:12px}
+.tree>ul{margin-left:0;border-left:0;padding-left:0}
+.tree li{padding:3px 0}
+.tree .nm{color:var(--ink)}
+.tree .dir>.nm{font-weight:500}
+.tree .dir>.nm::before{content:"▸ ";color:var(--soft)}
+.tree .dir.open>.nm::before{content:"▾ "}
+.tree .dir>ul{display:none} .tree .dir.open>ul{display:block}
+.tree .nm{cursor:default}
+.tree .dir>.nm{cursor:pointer}
+.tree .ds{font:14px/1.4 var(--sans);color:var(--soft);margin-left:10px}
+.tree a{color:var(--ink)} .tree a:hover{color:var(--accent-ink)}
+.tree .marco{color:var(--accent-ink)}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin:8px 0 30px}
+.card{background:var(--card);border:var(--edge);border-radius:var(--r-card);box-shadow:0 1px 2px #1b1f3b0f,0 2px 8px -2px #1b1f3b0f;padding:20px 22px}
+.card h3{font:700 20px/1.2 var(--serif);margin-bottom:8px}
+.card p,.card li{font-size:14px;color:var(--soft)}
+.card ol{margin-left:18px;display:grid;gap:6px}
+.card code{font:12px var(--mono);background:var(--paper);border:var(--edge);border-radius:3px;padding:1px 5px;color:var(--ink)}
+@media(max-width:760px){
+  .brand span{display:none} .brand{padding:11px 13px}
+  nav{overflow-x:auto;scrollbar-width:none;min-width:0} nav::-webkit-scrollbar{display:none}
+  .row{grid-template-columns:1fr;gap:6px}
+  .row .ano{font-size:20px} .row .ano small{display:inline;margin-left:8px}
+  .row .side{display:flex;flex-wrap:wrap;gap:8px}
+  .crow .lbl{width:100%}
+  .intro-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* design system v4: creme e azul-marinho, coral como destaque, títulos em Bricolage, botões grandes em pílula */
+.brand i{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:none}
+.brand{font-family:var(--serif);font-weight:700;letter-spacing:-.02em}
+#hero .kick,.eyebrow{color:var(--accent-ink);font-weight:600;letter-spacing:.06em}
+#hero h1,.prose h1,h1{letter-spacing:-.025em;font-weight:800}
+.path{border:var(--edge);border-radius:var(--r-card);background:var(--card);box-shadow:0 1px 2px #1b1f3b0f,0 2px 8px -2px #1b1f3b0f}
+.path .pk{color:var(--dot)}
+.btn{font-weight:600}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.primary:hover{background:#F25B39;border-color:#F25B39}
+.lb.t-emissor,.lb.t-tag{font-weight:600}
+.cura{border-left:3px solid var(--accent);font-weight:600}
+
+/* camadas de creme (v4): fundo sand-50, cartões sand-100, destaque/hover sand-200, bordas sand-300 */
+.chip,.hint span,kbd{background:var(--sand-2)}
+.btn:not(.primary):hover{background:var(--sand-2)}
+
+/* ícones (Lucide, traço 1,75, licença ISC; ver vendor/licencas/lucide.txt) */
+.i{width:1.1em;height:1.1em;vertical-align:-.18em;flex:none;display:inline-block}
+.theme .i{width:18px;height:18px;vertical-align:middle}
+
+/* modo escuro em vinho (da v3): botão principal ocre */
+:root[data-theme="dark"] .btn.primary:hover{background:#FFC45C;border-color:#FFC45C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary:hover{background:#FFC45C;border-color:#FFC45C}}
+
+/* topo no mesmo padrão da legenda: retângulos de cantos 10px, itens internos 6px */
+.brand,nav,.theme,.btn{border-radius:10px}
+nav a{border-radius:6px}
+
+/* marca: ícone de marco (Lucide "milestone") na cor de destaque, no lugar da bolinha */
+.brand .bi{width:20px;height:20px;flex:none;color:var(--accent)}
+
+/* chamadas acima dos títulos ("o acervo inteiro, como um mapa") em coral vivo, como o ícone da marca */
+#hero .kick,.eyebrow{color:var(--accent)}
+
+/* regra de cor (maintainer, 07/11/2026): no claro, creme é a cor primária e coral a secundária para elementos
+   (barras, bordas, ícones, contornos, chamadas). Tijolo (--accent-ink) só em texto fino/corrido, como links, para dar leitura. */
+:focus-visible{outline-color:var(--accent)}
+.prose blockquote{border-left-color:var(--accent)}
+.c-important{--cc:var(--accent)}
+
+/* auditoria da skill redesign (07/11/2026): pular para o conteúdo, números alinhados, quebra de linha, botão pressionado */
+.pular{position:fixed;left:16px;top:-80px;z-index:100;padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--paper);font:600 14px/1 var(--sans);transition:top .3s var(--ease)}
+.pular:focus{top:12px;text-decoration:none}
+main:focus{outline:none}
+.stat b,.n,.ano{font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance} p,li{text-wrap:pretty}
+.btn:active,.tbtn:active,.theme:active,.lyr:active,.path:active,nav a:active{transform:scale(.98)}
+/* entrada ao rolar: sobe um pouco e aparece uma vez (paginas.js); sem JS ou com movimento reduzido, tudo fica visível */
+.revela{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.revela.visto{opacity:1;transform:none}
+
+/* código dentro de link, destaque, termo ou descrição: só a fonte mono, sem o fundo de pílula */
+.prose a code,.prose strong code,.prose dt code,.tree .ds code,.src a.ext{font-family:var(--mono);font-size:.92em;font-weight:400;background:none;border:0;padding:0;color:inherit}
+
+/* botão "palavra-chave" do Acervo no mesmo estilo dos filtros ao lado (maintainer, 13/11/2026):
+   sem a seta do sistema, altura e letra dos filtros, seta própria (Lucide "chevron-down") na cor do texto apagado */
+:root{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A4F68' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E6D8DF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}}
+:root[data-theme="dark"]{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E6D8DF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+#f-tag{-webkit-appearance:none;appearance:none;height:auto;padding:7px 32px 7px 12px;border-radius:999px;
+  font:12px/1 var(--mono);color:var(--soft);background:var(--card) var(--chev) no-repeat right 11px center/13px 13px;
+  border:var(--edge);cursor:pointer;max-width:100%;transition:border-color .15s,color .15s}
+#f-tag:hover,#f-tag:focus-visible{border-color:var(--ink);color:var(--ink)}
+
+/* contraste do modo claro (teste 14/11/2026): texto dos selos e chamadas mais escuro só no claro; no escuro os tokens -ink repetem as cores de antes */
+.selo{color:var(--sc-ink,var(--sc))}
+.rascunho,.selo.rascunho{--sc-ink:var(--s-rascunho-ink)} .parcial,.selo.parcial{--sc-ink:var(--s-parcial-ink)}
+.conferido,.selo.conferido{--sc-ink:var(--s-conferido-ink)} .em-revisao,.selo.em-revisao{--sc-ink:var(--s-em-revisao-ink)}
+#hero .kick,.eyebrow{color:var(--kick-ink)}
+/* busca e ordenação do Acervo com o raio de 10 px do topo (maintainer, 14/11/2026) */
+#ord{-webkit-appearance:none;appearance:none;border-radius:10px;padding:0 34px 0 14px;
+  background:var(--card) var(--chev) no-repeat right 12px center/13px 13px;cursor:pointer}
+/* botão sol/lua centrado no quadrado: o ícone descia da linha de texto e ficava 3 px acima do centro (maintainer, 14/11/2026) */
+.theme{display:grid;place-items:center;padding:0}
+
+/* marca do topo com a mesma altura das outras caixas (38 px; estava 42) (maintainer, 14/11/2026) */
+.brand{height:38px;padding-top:0;padding-bottom:0}
+
+/* alvos de toque de 44 px só em tela de toque (pointer:coarse); com mouse nada muda (auditoria 14/11/2026) */
+@media (pointer:coarse){
+  .brand,.theme,.btn,.search,select,#ord,#f-tag{min-height:44px}
+  .theme{width:44px;height:44px}
+  header nav a{min-height:44px;display:inline-flex;align-items:center}
+  .chip{min-height:44px}
+  .crow{gap:8px}
+  .count a,footer a{display:inline-block;padding:13px 6px;margin:-13px -6px}
+  /* árvore de pastas da Estrutura: linhas de pasta e nomes de arquivo com 44 px de altura de toque */
+  .tree .t-acc-head,.tree .nm a{display:inline-flex;align-items:center;min-height:44px}
+  .tree li{padding:0}
+}
+
+/* título só para leitor de tela: completa a hierarquia H1 > H2 > H3 sem mudar o visual (auditoria 14/11/2026) */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* lista vazia do Acervo: causa, sugestões e saída (auditoria 14/11/2026) */
+.none{display:grid;gap:8px;padding:40px 0}
+.none p{font:600 16px/1.4 var(--serif);color:var(--soft)}
+.none .dica{font:400 14px/1.4 var(--sans)}
+.none .sug{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
+.none .sug a{font:12px var(--mono);margin-left:6px}
+
+/* campo de busca com anel de foco visível, além da borda (auditoria 14/11/2026) */
+.search:focus-visible,.search input:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+
+/* menu do topo em tela até 1100 px, igual ao da home: os links viram menu suspenso e o botão "Menu" aparece (celular, auditoria 14/11/2026) */
+.mnu{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:10px;pointer-events:auto;
+  background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:var(--edge);font:12px/1 var(--mono);color:var(--soft);cursor:pointer}
+.mnu:hover,.mnu[aria-expanded="true"]{border-color:var(--ink);color:var(--ink)}
+.mnu .i{width:16px;height:16px}
+header .theme{margin-left:auto}
+header nav.links{margin-left:0;overflow:visible}
+.mnu .i{width:18px;height:18px}
+@media (max-width:760px){.mnu{width:38px;padding:0;justify-content:center}.mnu .lbl{display:none}}
+@media (pointer:coarse){.mnu{min-height:44px;min-width:44px}}
+
+/* filtros recolhidos no celular (auditoria 14/11/2026): botão "Filtros (n)" mostra e esconde as quatro linhas de filtro */
+.tfil{display:none}
+@media (max-width:640px){
+  .tfil{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;margin:8px 0 4px;border-radius:999px;
+    font:12px/1 var(--mono);color:var(--soft);background:var(--card);border:var(--edge);cursor:pointer;align-self:flex-start}
+  .tfil:hover,.tfil[aria-expanded="true"]{border-color:var(--ink);color:var(--ink)}
+  .controls{display:flex;flex-direction:column}
+  .controls:not(.fil-open) .crow.fil{display:none}
+}
+
+/* bolinha da esfera na lista do Acervo: não é espremida quando o nome quebra em duas linhas e fica na altura da primeira (maintainer, 14/11/2026) */
+.row .esf{align-items:flex-start}
+.row .esf::before{flex:none;margin-top:2px}
+
+
+/* lista do Acervo sem o emissor (fica na ficha, no campo Órgão, no mapa e na busca); natureza alinhada ao texto da esfera, depois da bolinha (maintainer, 14/11/2026) */
+.row .side .nat{display:inline-flex;align-items:flex-start;gap:7px}
+.row .side .nat::before{content:"";flex:none;box-sizing:content-box;width:4px;height:4px;margin:4px 2px 0;border-radius:50%;background:var(--soft)}
+
+/* eixo de alinhamento = a bolinha: as bolinhas da esfera e da natureza ficam na mesma vertical da bolinha do selo
+   (1 px de borda + 8 px de respiro do selo), e os três textos começam na mesma coluna (maintainer, 14/11/2026) */
+.row .side .esf,.row .side .nat{margin-left:9px}
+
+/* palavras-chave da lista do Acervo mais discretas: texto comum (Geist) em peso normal e cor apagada, sem competir com o título (maintainer, 14/11/2026) */
+.row .tg{font:400 14px/1.3 var(--sans);color:var(--faint)}
+
+/* Estrutura: árvore de pastas colorida, como num editor de código (maintainer, 17/11/2026).
+   Pastas na cor de destaque; arquivos por tipo: textos .md em verde-azulado, dados em azul, código em roxo. */
+.tree .dir>.nm{color:var(--kick-ink);font-weight:600}
+.tree .t-acc-chevron{color:var(--accent)}
+.tree .nm.f-md,.tree .nm.f-md a{color:var(--c-est)}
+.tree .nm.f-json,.tree .nm.f-csv,.tree .nm.f-yaml,.tree .nm.f-yml,.tree .nm.f-txt,.tree .nm.f-json a,.tree .nm.f-csv a{color:var(--c-int)}
+.tree .nm.f-py,.tree .nm.f-js,.tree .nm.f-css,.tree .nm.f-html,.tree .nm.f-sh,.tree .nm.f-py a,.tree .nm.f-js a{color:var(--c-mun)}
+.tree .nm.f-png,.tree .nm.f-jpg,.tree .nm.f-svg,.tree .nm.f-webp,.tree .nm.f-pdf{color:var(--c-fed)}
+.tree .nm a:hover{text-decoration:underline;text-underline-offset:3px}
+.tree ul{border-left-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+
