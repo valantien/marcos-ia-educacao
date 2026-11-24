@@ -12,6 +12,8 @@ Legenda: **DECIDIDO** · **ADIADO** (decidir depois) · **MUDOU** (substitui dec
 | 129 | **Licença única:** `LICENSE.md` na raiz, com conteúdo do GT em CC BY-NC 4.0 e código (`site/` e `scripts/`) em MIT, em nome do autor, com crédito ao Second Brain OS; `site/LICENSE` saiu. Novo `CONTRIBUTING.md`, curto, apontando para `como-contribuir.md`. | DECIDIDO | `LICENSE.md` |
 | 130 | **Uma pasta `assets` só:** as capas passaram de `assets/covers/` (raiz) para `site/assets/covers/`; bibliotecas antigas sem uso saíram de `site/vendor/`; receita para refazer o `graph-libs.js` em `site/vendor/README.md`. | MUDOU | `site/pages/estrutura.md` |
 | 131 | **"Maintainer" para quem decide:** os termos "admin" e "mantenedor" foram unificados como "maintainer" (termo usado no GitHub e em projetos de código aberto) em todos os arquivos do acervo, inclusive no histórico. | MUDOU | `AGENTS.md` |
+| 132 | **Versão do site:** a primeira publicação no GitHub (24/11/2026) é a **v1**. Quando as fichas começarem a ser conferidas, a versão passa a ser **v1.1**. | DECIDIDO | este arquivo |
+| 133 | **Home no celular (até 760 px):** busca mais estreita com o texto "buscar"; logos CBAE/UFRJ menores; título e texto menores; botão "Explorar os marcos" compacto, do tamanho do texto; os cartões "Curadoria" e "Use com sua IA" saem da home no celular (continuam no menu); o bloco de texto encosta na legenda e o mapa se centraliza no espaço livre acima dele. | DECIDIDO | `site/assets/app.css`, `site/assets/app.js` |
 
 ## 18/11/2026
 
