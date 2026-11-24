@@ -968,7 +968,7 @@ layersBox.addEventListener('mouseover', e => {
 layersBox.addEventListener('mouseout', () => setPreview(null, 'list'));
 
 const spinBtn = $('#btn-spin');
-const paintSpin = () => { spinBtn.setAttribute('aria-pressed', S.spin); spinBtn.title = S.spin ? 'Pausar a rotação' : 'Retomar a rotação'; };
+const paintSpin = () => { spinBtn.setAttribute('aria-pressed', S.spin); spinBtn.title = S.spin ? 'Pausar rotação' : 'Retomar rotação'; };
 paintSpin();
 spinBtn.onclick = () => { S.spin = !S.spin; store.set('spin', S.spin); paintSpin(); resumeSpin(); };
 $('#btn-home').onclick = () => go('root');
