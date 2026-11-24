@@ -1,5 +1,6 @@
 # Publica a pasta site/ no GitHub Pages a cada envio para a branch main.
 # Os dados do site já vêm prontos no repositório (gerados por scripts/indice.py e scripts/site.py).
+# Duas etapas separadas (empacotar e publicar): dá tempo de o GitHub registrar o pacote antes da publicação.
 name: Publicar o site
 
 on:
@@ -9,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -17,16 +19,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publicar:
+  empacotar:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
+
+  publicar:
+    needs: empacotar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v5
