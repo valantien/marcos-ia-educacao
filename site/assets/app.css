@@ -767,3 +767,7 @@ body.m-read .top #btn-theme,body.m-focus .top #btn-theme{margin-left:auto}
   /* painel "Documentos" abaixo da barra de cima, na mesma largura do menu (250 px) */
   #contents{top:62px;left:10px;right:auto;bottom:auto;width:250px;max-height:calc(100dvh - 140px);border-radius:10px}
 }
+
+/* botão fechar com cara de botão (ajuste fino, 2026-11-24): moldura e fundo iguais aos botões do topo, para o X não parecer uma letra solta */
+.rx,#info .x{display:inline-grid;place-items:center;border:var(--edge);background:var(--glass);border-radius:10px;color:var(--soft)}
+.rx:hover,#info .x:hover{border-color:var(--ink);color:var(--ink)}
