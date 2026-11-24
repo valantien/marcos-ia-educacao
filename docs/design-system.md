@@ -64,6 +64,20 @@ Regra: nunca duas cores no mesmo link.
 - **Legenda do mapa:** números entre parênteses; no celular vira o botão "Legenda"; fundo semitransparente.
 - **Ajustes finos** de CSS ficam no fim do `app.css`, cada um com um comentário.
 
+### Quando usar e quando não usar
+
+- **Cartão principal** (coral no claro, ocre no escuro): a ação principal da tela. Só um por tela. Nunca para links secundários.
+- **Cartões secundários da home** ("Curadoria", "Use com sua IA"): só no computador. No celular saem, porque já estão no menu.
+- **Cores das esferas:** só no mapa, na legenda e nas marcas de esfera. Nunca como cor de botão ou de destaque.
+- **Cores dos selos:** só nos selos de verificação. Nunca para outra coisa, para não confundir o leitor.
+
+## Celular (até 760 px)
+
+- **Barra de cima:** só ícones. A busca é estreita e diz só "buscar".
+- **Home:** o mapa ocupa o espaço acima do bloco de texto. O bloco fica embaixo, encostado na legenda, sem espaço vazio.
+- **Bloco da home:** logos CBAE/UFRJ pequenos, título de 24 px, texto de 14 px e só o botão "Explorar os marcos", do tamanho do texto. Os números e a dica de uso não aparecem.
+- **Tamanhos:** os mesmos degraus do computador. Nada fora deles.
+
 ## Mapa 3D
 
 - **Centro (o acervo):** icosaedro facetado girando devagar, com aura e brilho que respira.

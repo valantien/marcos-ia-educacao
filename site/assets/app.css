@@ -748,18 +748,18 @@ body.m-read .top #btn-theme,body.m-focus .top #btn-theme{margin-left:auto}
    O app.js mede o topo do bloco da home (--hero-top) para centralizar o mapa no espaço livre. */
 @media (max-width:760px){
   .search{flex:0 1 130px;width:auto}
-  .search input{font-size:13px;padding:0 12px}
+  .search input{font-size:14px;padding:0 12px}
   #hero{bottom:68px;max-height:calc(100dvh - 130px)}
   #veil{top:calc(var(--hero-top,55vh) - 80px);height:auto;bottom:0}
   #hero .inst{gap:10px;margin-bottom:10px}
   #hero .inst-cbae{width:30px;height:37px} #hero .inst-ufrj{width:46px;height:23px} #hero .inst .sep{height:24px}
-  #hero .kick{font-size:11px;margin-bottom:6px}
-  #hero h1{font-size:26px;margin-bottom:8px}
-  #hero .lede{font-size:15px;line-height:1.45;margin-bottom:12px}
+  #hero .kick{font-size:12px;margin-bottom:6px}
+  #hero h1{font-size:24px;margin-bottom:8px}
+  #hero .lede{font-size:14px;line-height:1.5;margin-bottom:12px}
   #hero .paths{display:flex;gap:0;margin-bottom:0}
   .via:not(.via-main){display:none}
   .via-main{grid-column:auto;padding:8px 14px 8px 8px;gap:10px;border-radius:12px;white-space:nowrap}
-  .via-main b{font-size:15px}
+  .via-main b{font-size:16px}
   .via-main .via-ic{width:30px;height:30px;border-radius:8px}
   .via-main .via-ic .i{width:16px;height:16px}
 }
