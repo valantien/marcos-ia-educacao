@@ -53,6 +53,7 @@ Regra: nunca duas cores no mesmo link.
 ## Ícones e logo
 
 - Ícones **Lucide**, traço 1,75 (licença ISC), escritos dentro do HTML e do JavaScript.
+- **Nada de símbolo de texto no lugar de ícone** (↗, ▸, ×): sempre o ícone Lucide. Link externo = "arrow-up-right"; abrir e fechar pasta = "chevron-right" girando; rotação do mapa = "orbit"; ir a um nó do mapa = "locate". Botões só com ícone têm moldura (como os do topo) e uma dica ao parar o mouse.
 - **Logo:** o icosaedro do centro do mapa, em traço. Aparece no topo das quatro páginas e no ícone da aba. Na home, gira em 3D; sem 3D ou com "reduzir movimento" ligado, fica parado.
 
 ## Componentes

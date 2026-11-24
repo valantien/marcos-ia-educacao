@@ -771,3 +771,17 @@ body.m-read .top #btn-theme,body.m-focus .top #btn-theme{margin-left:auto}
 /* botão fechar com cara de botão (ajuste fino, 2026-11-24): moldura e fundo iguais aos botões do topo, para o X não parecer uma letra solta */
 .rx,#info .x{display:inline-grid;place-items:center;border:var(--edge);background:var(--glass);border-radius:10px;color:var(--soft)}
 .rx:hover,#info .x:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ícones no lugar de símbolos de texto (ajuste fino, 2026-11-24): link externo (Lucide "arrow-up-right") e pastas da Estrutura (Lucide "chevron-right") */
+:root{--ic-ext:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10'/%3E%3Cpath d='M7 17 17 7'/%3E%3C/svg%3E");
+  --ic-chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E")}
+a.ext::after,.prose a.ext::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:.2em;vertical-align:-.05em;font-size:inherit;
+  background:currentColor;opacity:.6;-webkit-mask:var(--ic-ext) center/contain no-repeat;mask:var(--ic-ext) center/contain no-repeat}
+.tree .dir>.nm::before{content:"";display:inline-block;width:14px;height:14px;margin-right:4px;vertical-align:-2px;background:var(--soft);
+  -webkit-mask:var(--ic-chev) center/contain no-repeat;mask:var(--ic-chev) center/contain no-repeat;transition:transform .2s var(--ease)}
+.tree .dir.open>.nm::before{content:"";transform:rotate(90deg)}
+.links a.ext::after{width:12px;height:12px;opacity:.85}
+/* "todas as páginas" no topo do leitor vira botão com ícone de localizar no mapa (leva ao nó "Sobre o projeto") (ajuste fino, 2026-11-24) */
+.rcrumb .rpages{vertical-align:middle;margin-left:2px;display:inline-grid;place-items:center;width:34px;height:34px;border:var(--edge);background:var(--glass);border-radius:10px;color:var(--soft)}
+.rcrumb .rpages:hover{border-color:var(--ink);color:var(--ink)}
+.rcrumb .rpages .i{width:18px;height:18px}

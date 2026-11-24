@@ -892,7 +892,7 @@ function renderReader(n) {
     const em = byId.get(n.em);
     rCrumb.innerHTML = `<b style="color:${cssDot(n)}">${esc(n.esfera)}</b><button data-go="${esc(n.em)}">${esc(em ? em.label : '')}</button> · ${esc(n.ano)}`;
   } else {
-    rCrumb.innerHTML = `<b style="color:${cssDot(n)}">sobre o projeto</b><button data-go="col:proj">todas as páginas</button>`;
+    rCrumb.innerHTML = `<b style="color:${cssDot(n)}">sobre o projeto</b><button class="rpages" data-go="col:proj" aria-label="Ver no mapa: Sobre o projeto, com todas as páginas" title="Ver no mapa: Sobre o projeto"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></button>`;
   }
   const rel = n.type === 'marco' ? edgeIds(n, 'related') : [];
   rBody.innerHTML = !P ? '<p>Esta página não carregou. Tente recarregar.</p>' :
