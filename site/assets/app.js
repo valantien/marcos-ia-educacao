@@ -514,12 +514,17 @@ scene.onBeforeRender = () => {
 
 // ------------------------------------------------------------------ camera
 const view = { x: 0, y: 0, tx: 0, ty: 0, w: 0, h: 0 };
-const panel = { info: 0, reader: 0, hero: 0 };
+const panel = { info: 0, reader: 0, hero: 0, heroTop: innerHeight * .6 };
 function measure() {
   panel.info = $('#info').offsetWidth; panel.reader = $('#reader').offsetWidth; panel.hero = $('#hero').offsetWidth;
+  // celular: topo do bloco da home, para o mapa ocupar o espaço livre acima dele (ajuste fino, 2026-11-24)
+  const h = $('#hero');
+  panel.heroTop = innerHeight - (parseFloat(getComputedStyle(h).bottom) || 0) - h.offsetHeight;
+  document.documentElement.style.setProperty('--hero-top', panel.heroTop + 'px');
 }
+const MOBILE_TOP = 58; // altura da barra de cima no celular
 function targetOffset() {
-  if (isMobile()) return { x: 0, y: S.mode === 'focus' ? innerHeight * .25 : S.mode === 'overview' ? innerHeight * .2 : 0 };
+  if (isMobile()) return { x: 0, y: S.mode === 'focus' ? innerHeight * .25 : S.mode === 'overview' ? innerHeight / 2 - (MOBILE_TOP + panel.heroTop) / 2 : 0 };
   if (S.mode === 'read') return { x: panel.reader / 2, y: 0 };
   if (S.mode === 'focus') return { x: (panel.info + 16) / 2, y: 0 };
   return { x: -(panel.hero + 28) / 2 * .85, y: 0 };
@@ -566,7 +571,7 @@ function stepFlight(now) {
 // distance at which a sphere of radius r fits the part of the screen the panels leave free
 function fitDistance(r) {
   let w = innerWidth, h = innerHeight;
-  if (isMobile()) h *= S.mode === 'focus' ? .46 : S.mode === 'overview' ? .5 : 1;
+  if (isMobile()) h = S.mode === 'focus' ? h * .46 : S.mode === 'overview' ? (panel.heroTop - MOBILE_TOP) : h;
   // the hero veil is translucent, so the overview may run a little behind it
   else w -= S.mode === 'focus' ? panel.info + 32 : S.mode === 'read' ? panel.reader : (panel.hero + 40) * .6;
   return r * innerHeight / (Math.tan(camera.fov * Math.PI / 360) * Math.max(160, Math.min(w, h)));
@@ -1121,6 +1126,8 @@ addEventListener('resize', () => {
   applyView(true);
 });
 measure();
+if (isMobile()) $('#q').placeholder = 'buscar';
+document.fonts?.ready.then(() => { measure(); applyView(true); });
 graph.width(innerWidth).height(innerHeight);
 hl.mat.resolution.set(innerWidth, innerHeight);
 
