@@ -518,9 +518,13 @@ const panel = { info: 0, reader: 0, hero: 0, heroTop: innerHeight * .6 };
 function measure() {
   panel.info = $('#info').offsetWidth; panel.reader = $('#reader').offsetWidth; panel.hero = $('#hero').offsetWidth;
   // celular: topo do bloco da home, para o mapa ocupar o espaço livre acima dele (ajuste fino, 2026-11-24)
+  // mede só com a home aberta e dentro de limites seguros, para uma medida ruim (barra do navegador mudando, bloco escondido) não empurrar o mapa para cima
   const h = $('#hero');
-  panel.heroTop = innerHeight - (parseFloat(getComputedStyle(h).bottom) || 0) - h.offsetHeight;
-  document.documentElement.style.setProperty('--hero-top', panel.heroTop + 'px');
+  if (isMobile() && h.offsetHeight && (S.mode === 'overview' || S.mode === 'boot')) {
+    const top = h.getBoundingClientRect().top;
+    panel.heroTop = clamp(top, innerHeight * .4, innerHeight - 160);
+    document.documentElement.style.setProperty('--hero-top', panel.heroTop + 'px');
+  }
 }
 const MOBILE_TOP = 58; // altura da barra de cima no celular
 function targetOffset() {
@@ -741,6 +745,7 @@ function route() {
   closeContents();
   if (r.mode === 'overview') {
     select(null);
+    measure(); applyView(true);
     fly(homeCenter, homeDistance, { ms: prevMode === 'boot' ? 3200 : 1900, spin: prevMode === 'boot' ? 1.7 : .9, phi: 1.2 });
     document.title = 'Marcos da IA na Educação';
     return;
@@ -1128,6 +1133,7 @@ addEventListener('resize', () => {
 measure();
 if (isMobile()) $('#q').placeholder = 'buscar';
 document.fonts?.ready.then(() => { measure(); applyView(true); });
+window.visualViewport?.addEventListener('resize', () => { measure(); applyView(true); });
 graph.width(innerWidth).height(innerHeight);
 hl.mat.resolution.set(innerWidth, innerHeight);
 

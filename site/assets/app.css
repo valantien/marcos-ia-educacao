@@ -762,4 +762,6 @@ body.m-read .top #btn-theme,body.m-focus .top #btn-theme{margin-left:auto}
   .via-main b{font-size:16px}
   .via-main .via-ic{width:30px;height:30px;border-radius:8px}
   .via-main .via-ic .i{width:16px;height:16px}
+  /* resultados da busca na largura da tela, logo abaixo da barra de cima */
+  .hits{position:fixed;top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 140px)}
 }
