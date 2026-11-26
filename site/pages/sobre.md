@@ -1,5 +1,7 @@
 # Sobre o acervo
 
+**Um acervo como um mapa onde as normas se encontram.**
+
 **Uma base aberta de conhecimento sobre os documentos que orientam e regulam a inteligência artificial no ensino. A curadoria é feita por professores. O acervo fica no GitHub e pode ser consultado por pessoas neste site e por assistentes de IA.**
 
 ## O que é

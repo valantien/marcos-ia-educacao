@@ -31,19 +31,18 @@ Este acervo segue o jeito de trabalhar dos projetos de código aberto (*open sou
 ## Sugerir um documento
 
 1. Confira em [`log-indice.md`](../../docs/log-indice.md) e [`log-triagem.md`](../../docs/log-triagem.md) se ele já está no acervo ou já foi avaliado.
-2. Responda às três perguntas: é documento oficial? Trata de IA (ou é correlato)? De qual órgão e ano?
-3. Envie ao maintainer o título, o órgão, o ano e o link oficial. A sugestão entra na triagem (ver [`pipeline.md`](pipeline.md)).
+2. Veja se ele passa nas cinco perguntas de [O que entra no acervo](curadoria.md#o-que-entra-no-acervo).
+3. Envie ao maintainer o título, o órgão, o ano e o link oficial. A sugestão entra na triagem (ver [As cinco fases](curadoria.md#as-cinco-fases)).
 
 ## Conferir uma ficha
 
 1. Abra a ficha (em `corpus/`) e o documento oficial lado a lado.
-2. Verifique os fatos que precisam bater exatamente: número, data, órgão, ementa, trechos literais, link oficial, situação atual e referência ABNT.
-3. Leia o resumo e "O que significa na prática": fazem sentido e não dizem nada que o documento não diga?
-4. Envie ao maintainer o resultado: tudo certo (selo verde) ou o que falta (selo amarelo).
+2. Siga a lista de [Verificação e selos](curadoria.md#verificacao-e-selos).
+3. Envie ao maintainer o resultado: tudo certo (selo verde) ou o que falta (selo amarelo).
 
 ## Fichar um documento (para quem edita o repositório)
 
-1. Crie a pasta certa em `corpus/`, na ordem jurisdição → emissor → tipo → ano (ver [`estrutura.md`](estrutura.md)).
+1. Crie a pasta certa em `corpus/`, na ordem jurisdição → emissor → tipo → ano (ver [Estrutura de pastas](estrutura.md)).
 2. Copie [`modelo-ficha.md`](../../docs/modelo-ficha.md) para essa pasta e renomeie: `AAAA-tipo-numero-assunto-curto.md`, em minúsculas, sem acento, com hífen.
 3. Preencha o cabeçalho e as seções. Use a fonte oficial; marque `[NÃO VERIFICADO]` o que não foi conferido.
 4. Salve a capa (primeira página do documento) em `site/assets/covers/<id>.png`.

@@ -18,6 +18,9 @@
   };
   const box = document.getElementById('tree');
   box.innerHTML = `<ul>${window.MIE_TREE.map(n => item(n, 0)).join('')}</ul>`;
+  // regras de nome e caminho das fichas (texto de site/pages/estrutura.md, decisão 136)
+  const regras = document.getElementById('regras');
+  if (regras && window.MIE_ESTRUTURA) regras.innerHTML = window.MIE_ESTRUTURA;
   box.addEventListener('click', e => {
     const head = e.target.closest('.t-acc-head'); if (!head) return;
     const acc = head.parentElement, open = acc.getAttribute('data-open') === 'true';

@@ -19,9 +19,8 @@ Cada documento é uma ficha em Markdown, com cabeçalho de dados, resumo, trecho
 
 | Documento | O que explica |
 |---|---|
-| [estrutura.md](site/pages/estrutura.md) | pastas, caminhos e regras de nome |
-| [curadoria.md](site/pages/curadoria.md) | o que entra, o que fica fora, verificação e selos |
-| [pipeline.md](site/pages/pipeline.md) | as cinco fases: captura, ingestão, conferência, publicação, vigilância |
+| [estrutura.md](site/pages/estrutura.md) | pastas, caminhos e regras de nome (no site, abaixo da árvore em Estrutura de pastas) |
+| [curadoria.md](site/pages/curadoria.md) | o que entra, o que fica fora, as cinco fases (captura, ingestão, conferência, publicação, vigilância), verificação e selos |
 | [como-contribuir.md](site/pages/como-contribuir.md) | como sugerir, conferir ou fichar um documento |
 | [modelo-ficha.md](docs/modelo-ficha.md) | o modelo de cada ficha |
 | [mapa-tipos.md](docs/mapa-tipos.md) | os tipos de documento aceitos |

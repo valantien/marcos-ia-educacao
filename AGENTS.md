@@ -12,9 +12,8 @@ Este repositório publica o site `valantien.github.io/marcos-ia-educacao`. O có
 
 As regras ficam em um lugar só. Não repita nem contradiga essas regras aqui; se uma regra mudar, atualize o documento certo e registre a mudança em `docs/log-decisoes.md`.
 
-- `site/pages/curadoria.md`: o que entra no acervo, correlatos, verificação, selos e como escrever a ficha.
-- `site/pages/estrutura.md`: pastas, caminhos e regras de nome.
-- `site/pages/pipeline.md`: as cinco fases (captura, ingestão, conferência, publicação, vigilância).
+- `site/pages/curadoria.md`: o que entra no acervo, correlatos, as cinco fases (captura, ingestão, conferência, publicação, vigilância), verificação, selos e como escrever a ficha.
+- `site/pages/estrutura.md`: pastas, caminhos e regras de nome. No site, aparece abaixo da árvore da página Estrutura de pastas (`site/estrutura.html`), não no leitor.
 - `docs/modelo-ficha.md`: modelo obrigatório de toda ficha nova.
 - `docs/design-system.md`: cores, letras, ícones e componentes do site. Ler antes de mexer no visual.
 - `docs/log-decisoes.md` e `docs/log-triagem.md`: **consultar antes de avaliar um documento.** Se ele já foi decidido, informe a decisão e o motivo em vez de avaliar de novo.
@@ -43,7 +42,7 @@ Ao renomear ou mover pastas e arquivos, atualizar na mesma tarefa:
 
 1. `scripts/indice.py` e `scripts/site.py`, se mudar algum caminho que eles usam; rodar os dois em seguida.
 2. `.gitignore`, se mudar o que não é publicado.
-3. `site/pages/estrutura.md` (a descrição oficial das pastas) e, se for o caso, `curadoria.md`, `pipeline.md`, `como-contribuir.md` e `docs/mapa-tipos.md`.
+3. `site/pages/estrutura.md` (a descrição oficial das pastas) e, se for o caso, `curadoria.md`, `como-contribuir.md` e `docs/mapa-tipos.md`.
 4. `README.md` (bloco "Organização" e links) e este `AGENTS.md`.
 5. Uma decisão nova em `docs/log-decisoes.md`.
 6. No fim: procurar o nome antigo em todos os arquivos, conferir os links e confirmar que nenhum nome de pessoa aparece fora dos créditos.

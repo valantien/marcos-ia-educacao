@@ -52,14 +52,14 @@ SELO = {"conferido": "conferido", "parcial": "parcial", "nao-conferido": "rascun
 PAGINAS = [
     ("sobre", "Sobre o acervo", "site/pages/sobre.md", "O que é, para quem serve e quem faz este acervo."),
     ("curadoria", "Curadoria", "site/pages/curadoria.md", "O que entra, o que fica fora e o que significa cada selo."),
-    ("pipeline", "Do achado ao site", "site/pages/pipeline.md", "As cinco fases por que passa cada documento."),
     ("usar-com-ia", "Use com sua IA", "site/pages/usar-com-ia.md", "Como entregar o acervo ao seu assistente de IA, com prompts de exemplo."),
     ("glossario", "Glossário", "site/pages/glossario.md", "Os termos do site explicados em linguagem simples."),
-    ("estrutura", "Como o repositório se organiza", "site/pages/estrutura.md", "As pastas e as regras de nome do acervo."),
     ("como-contribuir", "Como contribuir", "site/pages/como-contribuir.md", "Como sugerir, conferir ou fichar um documento."),
     ("quem-faz", "Quem faz", "site/pages/quem-faz.md", "Os professores do GT que fazem a curadoria."),
 ]
 DOC_DE_ARQUIVO = {os.path.normpath(src): pid for pid, _, src, _ in PAGINAS}
+# estrutura.md não é página do leitor: o texto aparece na página Estrutura de pastas, abaixo da árvore (decisão 136)
+ESTRUTURA_MD = "site/pages/estrutura.md"
 NO_SITE = ("data/", "llms.txt", "acervo.html", "estrutura.html", "index.html")
 
 
@@ -117,6 +117,8 @@ def link_local(href, base_dir, ids_marcos):
     nome = os.path.basename(alvo)
     if alvo in DOC_DE_ARQUIVO:
         return f"#/read/doc:{DOC_DE_ARQUIVO[alvo]}"
+    if alvo == os.path.normpath(ESTRUTURA_MD):
+        return "estrutura.html"
     if nome[:-3] in ids_marcos:
         return f"#/read/{nome[:-3]}"
     return f"{REPO}/blob/main/{alvo}"
@@ -151,6 +153,16 @@ def html_de(md, base_dir, ids_marcos):
     heads = [{"id": t["id"], "t": t["name"]} for t in conv.toc_tokens for t in [t] if t["level"] == 2]
     texto = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).strip()
     return html, texto, heads
+
+
+def regras_estrutura(ids_marcos):
+    """Texto de estrutura.md para a página estrutura.html, sem o título e sem a "Visão geral" (a árvore já mostra)."""
+    md = open(os.path.join(RAIZ, ESTRUTURA_MD), encoding="utf-8").read()
+    md = re.sub(r"^# .*\n", "", md, count=1, flags=re.M)
+    md = re.sub(r"^## Visão geral\s*\n(?:(?!^## ).*\n?)*", "", md, flags=re.M)
+    md = re.sub(r"\A(?:(?!^## ).*\n)*", "", md, flags=re.M)  # tira o parágrafo de abertura
+    html, _, _ = html_de(md, os.path.dirname(ESTRUTURA_MD), ids_marcos)
+    return html.replace('href="#/read/', 'href="index.html#/read/')
 
 
 def resumo_curto(md):
@@ -295,6 +307,7 @@ def main():
         f.write("window.MIE_GRAPH=" + json.dumps(out, ensure_ascii=False, separators=(",", ":")) + ";\n")
         f.write("window.MIE_PAGES=" + json.dumps(pages, ensure_ascii=False, separators=(",", ":")) + ";\n")
         f.write("window.MIE_TREE=" + json.dumps(arvore, ensure_ascii=False, separators=(",", ":")) + ";\n")
+        f.write("window.MIE_ESTRUTURA=" + json.dumps(regras_estrutura(ids), ensure_ascii=False, separators=(",", ":")) + ";\n")
 
     arquivo_unico(nodes)
     llms_txt(stats)

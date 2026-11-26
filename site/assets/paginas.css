@@ -313,3 +313,16 @@ a.ext::after,.prose a.ext::after{content:"";display:inline-block;width:.8em;heig
   -webkit-mask:var(--ic-chev) center/contain no-repeat;mask:var(--ic-chev) center/contain no-repeat;transition:transform .2s var(--ease)}
 .tree .dir.open>.nm::before{content:"";transform:rotate(90deg)}
 .links a.ext::after{width:12px;height:12px;opacity:.85}
+
+/* página Estrutura: regras de nome abaixo da árvore, vindas de site/pages/estrutura.md (decisão 136, 25/11/2026) */
+.regras{margin-top:36px;max-width:760px}
+.regras h2{font:700 24px/1.2 var(--serif);letter-spacing:-.02em;margin:32px 0 12px}
+.regras p,.regras li{font-size:16px;line-height:1.6;color:var(--soft)}
+.regras p{margin-bottom:12px}
+.regras ul{padding-left:20px;margin-bottom:12px}
+.regras strong{color:var(--ink)}
+.regras code{font:14px var(--mono);background:var(--card);border:var(--edge);border-radius:3px;padding:1px 5px;color:var(--ink)}
+.regras pre{font:14px/1.6 var(--mono);background:var(--card);border:var(--edge);border-radius:8px;padding:14px 16px;overflow:auto;margin-bottom:12px}
+.regras pre code{background:none;border:0;padding:0}
+.regras a{color:var(--accent)}
+.regras a code{background:none;border:0;padding:0;color:inherit}

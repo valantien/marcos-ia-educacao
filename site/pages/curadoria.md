@@ -45,6 +45,18 @@ Do candidato ao selo **Conferido**, cada documento passa por estas etapas.
 
 ![O caminho de uma ficha: o candidato é sugerido, o protocolo decide se entra, a ficha nasce como Rascunho e dois curadores conferem e dão o selo Parcial ou Conferido](../assets/diagrams/caminho-da-ficha.svg)
 
+### As cinco fases
+
+O caminho acima acontece em cinco fases. **O robô encontra e avisa; quem decide o que entra e quem confere na fonte são professores.**
+
+1. **Captura.** Os candidatos chegam por duas portas: o radar de novidades (busca automática, uma vez por mês) e as sugestões de professores e do público. Um assistente de IA pode fazer a pré-triagem com as cinco perguntas e escrever uma recomendação. Ele não decide. O resultado da triagem (aceito, recusado com motivo ou em dúvida) fica no [registro de triagem](../../docs/log-triagem.md).
+2. **Ingestão.** O documento aceito vira ficha, pelo [modelo de ficha](../../docs/modelo-ficha.md). A capa sai da primeira página do documento oficial. Um assistente de IA pode escrever o rascunho. O script confere o formato. A ficha nasce com o selo **Rascunho**.
+3. **Conferência.** Curadores comparam a ficha com o documento oficial, lado a lado (ver "Verificação e selos", abaixo). Quem confere não precisa usar o GitHub: aponta o erro, e o(a) maintainer corrige.
+4. **Publicação.** Toda ficha vai para o site desde o rascunho, com o selo da fase em que está. Junto saem os dados (`site/data/corpus.json` e `site/data/corpus.csv`) e o arquivo único para assistentes de IA.
+5. **Vigilância.** Uma vez por mês, o robô confere se os links oficiais funcionam e se algum documento mudou (revogado, alterado ou homologado). Se mudou, a ficha recebe o selo **Em revisão** e volta para a fase 3.
+
+O radar mensal e a vigilância mensal ainda não estão funcionando. Eles começam depois que as fichas atuais forem conferidas.
+
 ## Quem decide
 
 **Quem decide é o protocolo.** Cada documento passa pelas cinco perguntas, e a resposta define se ele entra. As pessoas aplicam essas regras e não escolhem caso a caso. Quando a regra deixa dúvida, o GT decide por consenso.

@@ -1,6 +1,6 @@
 # Marcos da IA na Educação: acervo completo
 
-Gerado em 2026-11-24 a partir de https://github.com/valantien/marcos-ia-educacao. Licença do conteúdo: CC BY-NC 4.0.
+Gerado em 2026-11-26 a partir de https://github.com/valantien/marcos-ia-educacao. Licença do conteúdo: CC BY-NC 4.0.
 
 ## Instruções para o assistente de IA
 
